@@ -1,13 +1,21 @@
 # === Stage 1: Build Stage ===
-# Use a specific Node.js version on a lightweight Alpine Linux base
-FROM node:18-alpine AS builder
+# Use a Debian-based Node.js image for better compatibility with native modules
+# UPDATED: Changed from node:18 to node:20 to meet package requirements
+FROM node:20-bullseye AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install necessary system dependencies for building native modules
-# sharp (for image processing) and other libraries may need these.
-RUN apk add --no-cache libc6-compat build-base gcc autoconf automake zlib-dev libpng-dev nasm git
+# --- FIX: Install all necessary system dependencies for building native modules using apt-get ---
+# This includes build-essential (for C++ compilers), python3, and libraries for the 'canvas' package.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3 \
+    libcairo2-dev \
+    libjpeg62-turbo-dev \
+    libpango1.0-dev \
+    libgif-dev \
+    g++
 
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
@@ -19,13 +27,13 @@ RUN npm install
 COPY . .
 
 # Build the Next.js application for production
-# This command creates an optimized build in the .next folder
 RUN npm run build
 
 
 # === Stage 2: Production Stage ===
-# Start from a fresh, lightweight Node.js Alpine image
-FROM node:18-alpine AS runner
+# Start from a fresh, lightweight Debian-based Node.js image
+# UPDATED: Changed from node:18 to node:20
+FROM node:20-bullseye-slim AS runner
 
 WORKDIR /app
 
@@ -33,16 +41,19 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Install only the necessary production system dependencies
-# Ghostscript is required by the 'pdf2pic' library for PDF to Image conversion.
-# If you use 'node-poppler', you would install 'poppler-utils' instead.
-RUN apk add --no-cache ghostscript
+# Ghostscript is required for PDF to Image conversion.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ghostscript \
+    libcairo2 \
+    libpango-1.0-0 \
+    libjpeg62-turbo \
+    libgif7
 
 # Create a non-root user for better security
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Copy the built application from the 'builder' stage
-# We only copy the necessary files for running the app in production
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
