@@ -1,7 +1,7 @@
 # === Stage 1: Build Stage ===
 # Use a Debian-based Node.js image for better compatibility with native modules
-# UPDATED: Changed from node:18 to node:20 to meet package requirements
-FROM node:20-bullseye AS builder
+# UPDATED: Changed from node:20 to node:22 to meet package requirements
+FROM node:22-bookworm AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -32,8 +32,8 @@ RUN npm run build
 
 # === Stage 2: Production Stage ===
 # Start from a fresh, lightweight Debian-based Node.js image
-# UPDATED: Changed from node:18 to node:20
-FROM node:20-bullseye-slim AS runner
+# UPDATED: Changed from node:20 to node:22
+FROM node:22-bookworm-slim AS runner
 
 WORKDIR /app
 
