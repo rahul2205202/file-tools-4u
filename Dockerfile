@@ -6,11 +6,6 @@ FROM node:22-bookworm AS builder
 # Set the working directory inside the container
 WORKDIR /app
 
-<<<<<<< HEAD
-# --- FIX: Install all necessary system dependencies for building native modules ---
-# This now includes python3 and specific libraries for the 'canvas' package.
-RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm git python3 cairo-dev jpeg-dev pango-dev giflib-dev
-=======
 # --- FIX: Install all necessary system dependencies for building native modules using apt-get ---
 # This includes build-essential (for C++ compilers), python3, and libraries for the 'canvas' package.
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -21,7 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpango1.0-dev \
     libgif-dev \
     g++
->>>>>>> 708c6db514cedd1958c68dd485517bff18de47e8
 
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
@@ -47,10 +41,6 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Install only the necessary production system dependencies
-<<<<<<< HEAD
-# Ghostscript is required by the 'pdf2pic' library for PDF to Image conversion.
-RUN apk add --no-cache ghostscript cairo pango jpeg giflib
-=======
 # Ghostscript is required for PDF to Image conversion.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ghostscript \
@@ -58,7 +48,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpango-1.0-0 \
     libjpeg62-turbo \
     libgif7
->>>>>>> 708c6db514cedd1958c68dd485517bff18de47e8
 
 # Create a non-root user for better security
 RUN addgroup --system --gid 1001 nodejs
