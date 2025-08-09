@@ -17,14 +17,14 @@ export async function POST(request) {
         for (const file of files) {
             const fileBuffer = Buffer.from(await file.arrayBuffer());
             
-            // --- NEW ROBUST LOGIC ---
+            // --- ROBUST LOGIC ---
             // 1. Use sharp to process the image, converting it to a reliable PNG format.
             // This handles any input format (JPG, WEBP, GIF, etc.) and standardizes it.
             const pngBuffer = await sharp(fileBuffer).png().toBuffer();
 
             // 2. Embed the newly created and validated PNG buffer into the PDF
             const image = await pdfDoc.embedPng(pngBuffer);
-            // --- END OF NEW LOGIC ---
+            // --- END OF LOGIC ---
 
             const page = pdfDoc.addPage();
             const { width, height } = page.getSize();

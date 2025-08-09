@@ -67,11 +67,12 @@ export const convertImage = async (formData) => {
  * @param {FormData} formData Contains the image files.
  * @returns {Promise<Blob>} A promise that resolves to the PDF blob.
  */
-export const convertImagesToPdf = async (formData) => {
+export const convertImagesToPdf = async (formData, onUploadProgress) => {
     try {
         const response = await localApi.post('/convert/image-to-pdf', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
             responseType: 'blob',
+            onUploadProgress, // Pass the callback to axios
         });
         return response.data;
     } catch (error) {
