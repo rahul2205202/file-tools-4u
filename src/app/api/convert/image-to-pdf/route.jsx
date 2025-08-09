@@ -1,42 +1,35 @@
 import { NextResponse } from 'next/server';
 import { PDFDocument } from 'pdf-lib';
+import sharp from 'sharp'; // Import the sharp library
 
 export async function POST(request) {
     try {
         const formData = await request.formData();
-        // Use .getAll() to handle multiple files with the same key
         const files = formData.getAll('files');
+        const filename = formData.get('filename') || 'filetools4u-document.pdf';
 
         if (!files || files.length === 0) {
             return new NextResponse('Please upload at least one image file.', { status: 400 });
         }
 
-        // Create a new PDF document
         const pdfDoc = await PDFDocument.create();
 
         for (const file of files) {
             const fileBuffer = Buffer.from(await file.arrayBuffer());
-            let image;
+            
+            // --- NEW ROBUST LOGIC ---
+            // 1. Use sharp to process the image, converting it to a reliable PNG format.
+            // This handles any input format (JPG, WEBP, GIF, etc.) and standardizes it.
+            const pngBuffer = await sharp(fileBuffer).png().toBuffer();
 
-            // Embed the image. pdf-lib supports JPG and PNG.
-            if (file.type === 'image/jpeg') {
-                image = await pdfDoc.embedJpg(fileBuffer);
-            } else if (file.type === 'image/png') {
-                image = await pdfDoc.embedPng(fileBuffer);
-            } else {
-                // Skip unsupported file types
-                console.warn(`Skipping unsupported file type: ${file.type}`);
-                continue;
-            }
+            // 2. Embed the newly created and validated PNG buffer into the PDF
+            const image = await pdfDoc.embedPng(pngBuffer);
+            // --- END OF NEW LOGIC ---
 
-            // Add a new page to the document
             const page = pdfDoc.addPage();
             const { width, height } = page.getSize();
-            
-            // Scale the image to fit the page while maintaining aspect ratio
-            const scaledDims = image.scaleToFit(width - 50, height - 50); // 25px margin
+            const scaledDims = image.scaleToFit(width - 50, height - 50);
 
-            // Draw the image on the page, centered
             page.drawImage(image, {
                 x: (width - scaledDims.width) / 2,
                 y: (height - scaledDims.height) / 2,
@@ -45,7 +38,6 @@ export async function POST(request) {
             });
         }
 
-        // Save the PDF to a buffer
         const pdfBytes = await pdfDoc.save();
 
         return new NextResponse(pdfBytes, {
@@ -53,6 +45,7 @@ export async function POST(request) {
             headers: {
                 'Content-Type': 'application/pdf',
                 'Content-Length': pdfBytes.length,
+                'Content-Disposition': `attachment; filename="${filename}"`,
             },
         });
 
