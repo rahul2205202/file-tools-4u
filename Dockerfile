@@ -5,9 +5,9 @@ FROM node:18-alpine AS builder
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install necessary system dependencies for building native modules
-# sharp (for image processing) and other libraries may need these.
-RUN apk add --no-cache libc6-compat build-base gcc autoconf automake zlib-dev libpng-dev nasm git
+# --- FIX: Install all necessary system dependencies for building native modules ---
+# This now includes python3 and specific libraries for the 'canvas' package.
+RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm git python3 cairo-dev jpeg-dev pango-dev giflib-dev
 
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
@@ -19,7 +19,6 @@ RUN npm install
 COPY . .
 
 # Build the Next.js application for production
-# This command creates an optimized build in the .next folder
 RUN npm run build
 
 
@@ -34,15 +33,13 @@ ENV NODE_ENV=production
 
 # Install only the necessary production system dependencies
 # Ghostscript is required by the 'pdf2pic' library for PDF to Image conversion.
-# If you use 'node-poppler', you would install 'poppler-utils' instead.
-RUN apk add --no-cache ghostscript
+RUN apk add --no-cache ghostscript cairo pango jpeg giflib
 
 # Create a non-root user for better security
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Copy the built application from the 'builder' stage
-# We only copy the necessary files for running the app in production
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
