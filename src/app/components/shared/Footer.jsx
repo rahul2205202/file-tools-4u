@@ -20,7 +20,7 @@ export default function Footer() {
                             Privacy Policy
                         </Link>
                         <Link href="/terms-of-service" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
-                            Terms of Service
+                            Terms and Conditions
                         </Link>
                         <Link href="/contact" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
                             Contact
