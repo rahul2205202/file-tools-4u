@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Providers>
-          <div className="flex flex-col min-h-screen bg-gray-100">
+          <div className="flex flex-col min-h-screen bg-white">
             <Header />
-            <main className="flex-grow py-8">
-              <div className="container mx-auto px-4">
+            <main className="flex-grow">
+              <div className="container mx-auto">
                 <div className="flex justify-center">
                   {children}
                 </div>

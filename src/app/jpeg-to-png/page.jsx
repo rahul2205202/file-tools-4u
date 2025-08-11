@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageConverter from '../components/tools/ImageConverter'; // 1. Import the tool component
+import ImageConverter from '../components/tools/JepgToPngConverter'; // 1. Import the tool component
 
 // 2. SEO metadata is defined in the page file
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
     description: 'Easily convert images to and from JPG, PNG, GIF, and BMP formats for free with File Tools 4U. Instant online image format conversion.',
     keywords: 'image converter, convert image, jpg to png, png to jpg, gif converter, bmp converter',
     alternates: {
-        canonical: 'https://filetools4u.com/image-converter',
+        canonical: 'https://filetools4u.com/jpeg-to-png',
     },
 };
 

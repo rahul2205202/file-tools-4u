@@ -49,9 +49,22 @@ export const compressPdf = async (formData) => {
  * @param {FormData} formData Contains the file and target format.
  * @returns {Promise<Blob>} A promise that resolves to the converted image blob.
  */
-export const convertImage = async (formData) => {
+export const convertJpegToPng = async (formData) => {
     try {
-        const response = await localApi.post('/convert/image', formData, {
+        const response = await localApi.post('/convert/jpeg-to-png', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'Image conversion failed.');
+    }
+};
+
+export const convertPngToJpeg = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/png-to-jpeg', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
             responseType: 'blob',
         });
@@ -112,9 +125,13 @@ export const generateAiImage = async (prompt) => {
             parameters: { "sampleCount": 1 }
         };
         
-        // In Next.js, API keys should be stored in environment variables.
-        // Create a .env.local file and add: NEXT_PUBLIC_GEMINI_API_KEY=your_key
-        const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY; 
+        // CORRECTED: Use the secure, server-side environment variable.
+        const apiKey = process.env.GEMINI_API_KEY; 
+        
+        if (!apiKey) {
+            throw new Error('Gemini API key is not configured on the server.');
+        }
+
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
 
         const response = await axios.post(apiUrl, payload);
@@ -129,4 +146,4 @@ export const generateAiImage = async (prompt) => {
         const errorMessage = error.response?.data?.error?.message || error.message;
         throw new Error(errorMessage || 'AI image generation failed.');
     }
-};
+}

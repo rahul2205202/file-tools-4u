@@ -11,7 +11,8 @@ export default function Header() {
     const navLinks = [
         { href: '/generate-ai-image', text: 'AI Generator' },
         { href: '/image-compressor', text: 'Image Compressor' },
-        { href: '/image-converter', text: 'Converter' },
+        { href: '/png-to-jpeg', text: 'PNG to JPEG' },
+        { href: '/jpeg-to-png', text: 'JPEG to PNG' },
         { href: '/image-to-pdf', text: 'Image to PDF' },
     ];
 
