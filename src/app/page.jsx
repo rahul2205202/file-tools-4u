@@ -81,7 +81,7 @@ export default function Homepage() {
                 </section>
                 <div className="my-5 border-t border-gray-200"></div>
 
-                {/* Tools Grid Section*/}
+                {/* Tools Grid Section Sample*/}
                 <section id="tools" className="py-5 rounded-lg">
                     <div className="container mx-auto px-4">
                         <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
