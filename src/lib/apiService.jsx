@@ -75,6 +75,20 @@ export const convertPngToJpeg = async (formData) => {
     }
 };
 
+export const convertToWebp = async (formData) => {
+    try {
+        // This endpoint can point to a single, smart API route that handles different conversions.
+        const response = await localApi.post('/convert/image-to-webp', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'Image processing failed due to a network or server error.');
+    }
+};
+
 /**
  * Converts multiple images into a single PDF.
  * @param {FormData} formData Contains the image files.
@@ -127,7 +141,7 @@ export const generateAiImage = async (prompt) => {
         
         // CORRECTED: Use the secure, server-side environment variable.
         const apiKey = process.env.GEMINI_API_KEY; 
-        
+        console.log('Using Gemini API Key:', apiKey); // Log the API key for debugging
         if (!apiKey) {
             throw new Error('Gemini API key is not configured on the server.');
         }
@@ -147,3 +161,27 @@ export const generateAiImage = async (prompt) => {
         throw new Error(errorMessage || 'AI image generation failed.');
     }
 }
+
+export const sendContactMessage = async (formData) => {
+    try {
+        // We use a standard fetch call here as Axios is not strictly necessary for a simple JSON post.
+        const response = await fetch('/api/resend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to send message.');
+        }
+
+        return data;
+    } catch (error) {
+        // Re-throw the error to be caught by the component
+        throw error;
+    }
+};

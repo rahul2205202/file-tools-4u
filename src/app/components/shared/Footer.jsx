@@ -22,7 +22,7 @@ export default function Footer() {
                         <Link href="/terms-of-service" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
                             Terms and Conditions
                         </Link>
-                        <Link href="/contact" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
+                        <Link href="/contact-us" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
                             Contact
                         </Link>
                     </div>

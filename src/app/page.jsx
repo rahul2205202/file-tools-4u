@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata = {
     title: 'File Tools 4U - Free Online Image & PDF Tools',
     description: 'Your one-stop destination for free online file utilities. Compress, convert, and create images and PDFs with our powerful, easy-to-use tools.',
-    keywords: 'file tools, image tools, pdf tools, online converter, online compressor, free tools, ai image generator',
+    keywords: 'file tools, image tools, pdf tools, webp converter, online converter, online compressor, free tools, ai image generator',
     alternates: {
         canonical: 'https://filetools4u.com/', // Replace with your actual domain
     },
@@ -18,23 +18,23 @@ const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     const colorThemes = {
         red: {
             bg: 'bg-red-600',
-            text: 'text-red-600',
             hoverBorder: 'hover:border-red-500',
         },
         purple: {
             bg: 'bg-purple-600',
-            text: 'text-purple-600',
             hoverBorder: 'hover:border-purple-500',
         },
         teal: {
             bg: 'bg-teal-500',
-            text: 'text-teal-500',
             hoverBorder: 'hover:border-teal-400',
         },
         green: {
             bg: 'bg-green-600',
-            text: 'text-green-600',
             hoverBorder: 'hover:border-green-500',
+        },
+        orange: {
+            bg: 'bg-orange-500',
+            hoverBorder: 'hover:border-orange-500',
         },
     };
 
@@ -54,12 +54,13 @@ const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
 
 // --- Main Homepage Component ---
 export default function Homepage() {
-    // Icons for the tool cards
+    // Icons for the tool cards - Updated for better relevance
     const icons = {
-        compressor: <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>,
+        compressor: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>,
         generator: <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 010 1.414L11 15l-4 6h12l-4-6 2.293-2.293a1 1 0 011.414 0L19 12M5 12l2.293 2.293a1 1 0 001.414 0L11 12l-4-6H3l2 6z"></path></svg>,
-        pngToJpeg: <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>,
-        imgToPdf: <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>,
+        pngToJpeg: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25h.75" /></svg>,
+        imgToPdf: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
+        webpConverter: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691V5.25a2.25 2.25 0 00-2.25-2.25L10.5 3z" /></svg>,
     };
 
     return (
@@ -86,33 +87,40 @@ export default function Homepage() {
                         <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
                             What can we help you with?
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                             <ToolCard 
-                                to="/compress-image" 
+                                to="/image-compressor" 
                                 icon={icons.compressor} 
                                 title="Image Compressor" 
-                                description="Reduce file sizes of JPG, PNG, and WEBP images with adjustable quality." 
+                                description="Reduce file sizes of JPG, PNG, and WEBP images." 
                                 color="purple"
                             />
                             <ToolCard 
                                 to="/generate-ai-image" 
                                 icon={icons.generator} 
                                 title="AI Image Generator" 
-                                description="Turn your text prompts into stunning, unique images with artificial intelligence." 
+                                description="Turn your text prompts into stunning, unique images." 
                                 color="teal"
                             />
+                             <ToolCard 
+                                to="/convert-to-webp" 
+                                icon={icons.webpConverter} 
+                                title="WebP Converter" 
+                                description="Convert any image to the modern, high-efficiency WebP format." 
+                                color="orange"
+                            />
                             <ToolCard 
-                                to="/convert-image-to-pdf" 
+                                to="/image-to-pdf" 
                                 icon={icons.imgToPdf} 
                                 title="Image to PDF" 
-                                description="Combine multiple JPG or PNG images into a single, professional PDF document." 
+                                description="Combine multiple images into a single PDF document." 
                                 color="red"
                             />
                             <ToolCard 
                                 to="/png-to-jpeg" 
                                 icon={icons.pngToJpeg} 
                                 title="PNG to JPEG Converter" 
-                                description="Convert transparent PNG files into the universally compatible JPEG format." 
+                                description="Convert PNG files into the universally compatible JPEG format." 
                                 color="green"
                             />
                         </div>
