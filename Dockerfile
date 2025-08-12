@@ -23,10 +23,18 @@ COPY package*.json ./
 # Install all dependencies, including devDependencies needed for the build
 RUN npm install
 
+# --- FIX: Accept build arguments for secrets and set them as environment variables ---
+# This is crucial for making the API key available to `npm run build`
+ARG RESEND_API_KEY
+ARG GEMINI_API_KEY
+ENV RESEND_API_KEY=$RESEND_API_KEY
+ENV GEMINI_API_KEY=$GEMINI_API_KEY
+
 # Copy the rest of your application code into the container
 COPY . .
 
 # Build the Next.js application for production
+# This command now has access to the environment variables set above
 RUN npm run build
 
 
