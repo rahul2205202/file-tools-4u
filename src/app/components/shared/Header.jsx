@@ -27,7 +27,7 @@ export default function Header() {
             links: [
                 { href: '/image-compressor', text: 'Image Compressor', icon: toolIcons.compressor },
                 { href: '/generate-ai-image', text: 'AI Image Generator', icon: toolIcons.generator },
-                { href: '/convert-to-webp', text: 'WebP Converter', icon: toolIcons.webp },
+                { href: '/webp-converter', text: 'WebP Converter', icon: toolIcons.webp },
                 { href: '/png-to-jpeg', text: 'PNG to JPEG', icon: toolIcons.pngToJpeg },
                 { href: '/jpeg-to-png', text: 'JPEG to PNG', icon: toolIcons.jpegToPng },
             ],
