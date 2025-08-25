@@ -141,7 +141,7 @@ export const generateAiImage = async (prompt) => {
         
         // CORRECTED: Use the secure, server-side environment variable.
         const apiKey = process.env.GEMINI_API_KEY; 
-        console.log('Using Gemini API Key:', apiKey); // Log the API key for debugging
+        console.log('Using Gemini API Key:', apiKey);
         if (!apiKey) {
             throw new Error('Gemini API key is not configured on the server.');
         }
