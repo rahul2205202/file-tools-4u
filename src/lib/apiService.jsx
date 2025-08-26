@@ -134,33 +134,15 @@ export const convertPdfToImages = async (formData) => {
  */
 export const generateAiImage = async (prompt) => {
     try {
-        const payload = {
-            instances: [{ prompt }],
-            parameters: { "sampleCount": 1 }
-        };
-        
-        // CORRECTED: Use the secure, server-side environment variable.
-        const apiKey = process.env.GEMINI_API_KEY; 
-        console.log('Using Gemini API Key:', apiKey);
-        if (!apiKey) {
-            throw new Error('Gemini API key is not configured on the server.');
-        }
-
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-        const response = await axios.post(apiUrl, payload);
-        
-        const predictions = response.data.predictions;
-        if (predictions && predictions.length > 0 && predictions[0].bytesBase64Encoded) {
-            return `data:image/png;base64,${predictions[0].bytesBase64Encoded}`;
-        } else {
-            throw new Error('API did not return a valid image.');
-        }
+        // This now calls YOUR server, not the external Gemini API
+        const response = await localApi.post('/generate-ai-image', { prompt });
+        return response.data.imageUrl;
     } catch (error) {
-        const errorMessage = error.response?.data?.error?.message || error.message;
+        // Await the error response to get the text from the server
+        const errorMessage = await error.response?.data || error.message;
         throw new Error(errorMessage || 'AI image generation failed.');
     }
-}
+};
 
 export const sendContactMessage = async (formData) => {
     try {
