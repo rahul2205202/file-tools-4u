@@ -6,6 +6,7 @@ export default function sitemap() {
   // List all your tool and static pages
   const routes = [
     '/image-compressor',
+    '/pdf-compressor',
     '/generate-ai-image',
     '/image-to-pdf',
     '/jpeg-to-png',
