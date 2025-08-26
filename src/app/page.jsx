@@ -5,37 +5,22 @@ import Link from 'next/link';
 export const metadata = {
     title: 'File Tools 4U - Free Online Image & PDF Tools',
     description: 'Your one-stop destination for free online file utilities. Compress, convert, and create images and PDFs with our powerful, easy-to-use tools.',
-    keywords: 'file tools, image tools, pdf tools, webp converter, online converter, online compressor, free tools, ai image generator',
+    keywords: 'pdf compressor, file tools, image tools, pdf tools, online converter, online compressor, free tools, ai image generator', // Added pdf compressor
     alternates: {
-        canonical: 'https://filetools4u.com/', // Replace with your actual domain
+        canonical: 'https://filetools4u.com/',
     },
 };
 
 // --- Helper Component for Tool Cards ---
-// This component is now styled to accept a color theme.
 const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     // Define color themes to easily switch between styles
     const colorThemes = {
-        red: {
-            bg: 'bg-red-600',
-            hoverBorder: 'hover:border-red-500',
-        },
-        purple: {
-            bg: 'bg-purple-600',
-            hoverBorder: 'hover:border-purple-500',
-        },
-        teal: {
-            bg: 'bg-teal-500',
-            hoverBorder: 'hover:border-teal-400',
-        },
-        green: {
-            bg: 'bg-green-600',
-            hoverBorder: 'hover:border-green-500',
-        },
-        orange: {
-            bg: 'bg-orange-500',
-            hoverBorder: 'hover:border-orange-500',
-        },
+        red: { bg: 'bg-red-600', hoverBorder: 'hover:border-red-500' },
+        purple: { bg: 'bg-purple-600', hoverBorder: 'hover:border-purple-500' },
+        teal: { bg: 'bg-teal-500', hoverBorder: 'hover:border-teal-400' },
+        green: { bg: 'bg-green-600', hoverBorder: 'hover:border-green-500' },
+        orange: { bg: 'bg-orange-500', hoverBorder: 'hover:border-orange-500' },
+        blue: { bg: 'bg-blue-600', hoverBorder: 'hover:border-blue-500' }, // Added blue theme
     };
 
     const theme = colorThemes[color] || colorThemes.red;
@@ -54,13 +39,13 @@ const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
 
 // --- Main Homepage Component ---
 export default function Homepage() {
-    // Icons for the tool cards - Updated for better relevance
     const icons = {
-        compressor: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>,
+        pdfCompressor: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>,
+        imageCompressor: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>,
         generator: <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 010 1.414L11 15l-4 6h12l-4-6 2.293-2.293a1 1 0 011.414 0L19 12M5 12l2.293 2.293a1 1 0 001.414 0L11 12l-4-6H3l2 6z"></path></svg>,
-        pngToJpeg: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25h.75" /></svg>,
+        converter: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25h.75" /></svg>,
         imgToPdf: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>,
-        webpConverter: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691V5.25a2.25 2.25 0 00-2.25-2.25L10.5 3z" /></svg>,
+        pdfToImg: <svg className="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>,
     };
 
     return (
@@ -89,10 +74,17 @@ export default function Homepage() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                             <ToolCard 
-                                to="/image-compressor" 
-                                icon={icons.compressor} 
+                                to="/compress-pdf" 
+                                icon={icons.pdfCompressor} 
+                                title="PDF Compressor" 
+                                description="Reduce the file size of your PDF documents quickly." 
+                                color="blue"
+                            />
+                            <ToolCard 
+                                to="/compress-image" 
+                                icon={icons.imageCompressor} 
                                 title="Image Compressor" 
-                                description="Reduce file sizes of JPG, PNG, and WEBP images." 
+                                description="Optimize your images for the web without losing quality." 
                                 color="purple"
                             />
                             <ToolCard 
@@ -102,25 +94,25 @@ export default function Homepage() {
                                 description="Turn your text prompts into stunning, unique images." 
                                 color="teal"
                             />
-                             <ToolCard 
-                                to="/webp-converter" 
-                                icon={icons.webpConverter} 
-                                title="WebP Converter" 
-                                description="Convert any image to the modern, high-efficiency WebP format." 
+                            <ToolCard 
+                                to="/convert-image-format" 
+                                icon={icons.converter} 
+                                title="Image Format Converter" 
+                                description="Convert images between JPG, PNG, GIF, and more." 
                                 color="orange"
                             />
                             <ToolCard 
-                                to="/image-to-pdf" 
+                                to="/convert-image-to-pdf" 
                                 icon={icons.imgToPdf} 
                                 title="Image to PDF" 
                                 description="Combine multiple images into a single PDF document." 
                                 color="red"
                             />
                             <ToolCard 
-                                to="/png-to-jpeg" 
-                                icon={icons.pngToJpeg} 
-                                title="PNG to JPEG Converter" 
-                                description="Convert PNG files into the universally compatible JPEG format." 
+                                to="/convert-pdf-to-image" 
+                                icon={icons.pdfToImg} 
+                                title="PDF to Image" 
+                                description="Extract all pages from a PDF as high-quality images." 
                                 color="green"
                             />
                         </div>
@@ -130,5 +122,3 @@ export default function Homepage() {
         </div>
     );
 }
-
-
