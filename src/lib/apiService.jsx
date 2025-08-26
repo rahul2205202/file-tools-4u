@@ -27,24 +27,6 @@ export const compressImage = async (formData) => {
 };
 
 /**
- * Compresses a PDF file by re-compressing its internal images.
- * @param {FormData} formData Contains the PDF file and quality level.
- * @returns {Promise<Blob>} A promise that resolves to the compressed PDF blob.
- */
-export const compressPdf = async (formData) => {
-    try {
-        const response = await localApi.post('/compress/pdf', formData, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-            responseType: 'blob',
-        });
-        return response.data;
-    } catch (error) {
-        const errorText = await error.response?.data?.text();
-        throw new Error(errorText || 'PDF compression failed.');
-    }
-};
-
-/**
  * Converts a single image to a different format.
  * @param {FormData} formData Contains the file and target format.
  * @returns {Promise<Blob>} A promise that resolves to the converted image blob.
@@ -165,5 +147,23 @@ export const sendContactMessage = async (formData) => {
     } catch (error) {
         // Re-throw the error to be caught by the component
         throw error;
+    }
+};
+
+/**
+ * Compresses a PDF file by re-compressing its internal images.
+ * @param {FormData} formData Contains the PDF file and quality level.
+ * @returns {Promise<Blob>} A promise that resolves to the compressed PDF blob.
+ */
+export const compressPdf = async (formData) => {
+    try {
+        const response = await localApi.post('/compress/pdf', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'PDF compression failed.');
     }
 };
