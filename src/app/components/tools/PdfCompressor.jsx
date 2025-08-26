@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { compressPdf } from '../../../lib/apiService'; // Import the API function
+import { compressPdf } from '../../../lib/apiService'; // Using the path alias
 
 export default function PdfCompressor() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -143,6 +143,50 @@ export default function PdfCompressor() {
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload PDF</h3><p className="text-slate-600">Select your PDF file by clicking the upload area or dragging and dropping.</p></div>
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">2</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Set Compression</h3><p className="text-slate-600">Use the slider to choose the desired image quality within your PDF.</p></div>
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">3</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Download</h3><p className="text-slate-600">Your smaller PDF will be ready instantly. Click to download and you're all set!</p></div>
+                    </div>
+                </div>
+
+                {/* --- NEW: Features Section --- */}
+                <div className="my-5 border-t border-gray-200"></div>
+                <div className="mt-10 max-w-5xl mx-auto">
+                    <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Features</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Advanced Compression</h4>
+                                <p className="text-slate-600">Reduces file size by intelligently downsampling and re-compressing large images embedded in your PDF.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Adjustable Quality</h4>
+                                <p className="text-slate-600">You have full control over the compression level with an easy-to-use quality slider.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Secure & Private</h4>
+                                <p className="text-slate-600">Your files are processed securely and are immediately deleted from our servers after compression.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-semibold text-slate-800 mb-1">No Software Installation</h4>
+                                <p className="text-slate-600">Our compressor works entirely in your browser. No downloads or installations are required.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

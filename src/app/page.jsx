@@ -74,14 +74,14 @@ export default function Homepage() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                             <ToolCard 
-                                to="/compress-pdf" 
+                                to="/pdf-compressor" 
                                 icon={icons.pdfCompressor} 
                                 title="PDF Compressor" 
                                 description="Reduce the file size of your PDF documents quickly." 
                                 color="blue"
                             />
                             <ToolCard 
-                                to="/compress-image" 
+                                to="/image-compressor" 
                                 icon={icons.imageCompressor} 
                                 title="Image Compressor" 
                                 description="Optimize your images for the web without losing quality." 
@@ -95,23 +95,23 @@ export default function Homepage() {
                                 color="teal"
                             />
                             <ToolCard 
-                                to="/convert-image-format" 
+                                to="/jpeg-to-png" 
                                 icon={icons.converter} 
-                                title="Image Format Converter" 
+                                title="JPEG To PNG Converter" 
                                 description="Convert images between JPG, PNG, GIF, and more." 
                                 color="orange"
                             />
                             <ToolCard 
-                                to="/convert-image-to-pdf" 
+                                to="/image-to-pdf" 
                                 icon={icons.imgToPdf} 
                                 title="Image to PDF" 
                                 description="Combine multiple images into a single PDF document." 
                                 color="red"
                             />
                             <ToolCard 
-                                to="/convert-pdf-to-image" 
+                                to="/png-to-jpeg" 
                                 icon={icons.pdfToImg} 
-                                title="PDF to Image" 
+                                title="PNG To JPEG Converter" 
                                 description="Extract all pages from a PDF as high-quality images." 
                                 color="green"
                             />
