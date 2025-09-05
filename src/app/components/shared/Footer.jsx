@@ -16,6 +16,9 @@ export default function Footer() {
 
                     {/* Footer Links */}
                     <div className="flex space-x-6">
+                        <Link href="/about-us" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
+                            About Us
+                        </Link>
                         <Link href="/privacy-policy" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
                             Privacy Policy
                         </Link>
@@ -23,7 +26,7 @@ export default function Footer() {
                             Terms and Conditions
                         </Link>
                         <Link href="/contact-us" className="text-sm text-slate-400 hover:text-red-500 transition-colors duration-200">
-                            Contact
+                            Contact Us
                         </Link>
                     </div>
 
