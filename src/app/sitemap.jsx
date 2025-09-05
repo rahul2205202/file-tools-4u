@@ -11,6 +11,7 @@ export default function sitemap() {
     '/image-to-pdf',
     '/jpeg-to-png',
     '/png-to-jpeg',
+    '/photo-restorer',
     '/webp-converter',
     '/contact-us',
     '/privacy-policy',

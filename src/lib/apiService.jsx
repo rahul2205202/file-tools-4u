@@ -167,3 +167,21 @@ export const compressPdf = async (formData) => {
         throw new Error(errorText || 'PDF compression failed.');
     }
 };
+
+/**
+ * Restores and enhances an old photo using AI.
+ * @param {FormData} formData Contains the image file to restore.
+ * @returns {Promise<Blob>} A promise that resolves to the restored image blob.
+ */
+export const restorePhoto = async (formData) => {
+    try {
+        const response = await localApi.post('/restore-photo', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'Photo restoration failed.');
+    }
+};
