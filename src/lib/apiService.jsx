@@ -185,3 +185,20 @@ export const restorePhoto = async (formData) => {
         throw new Error(errorText || 'Photo restoration failed.');
     }
 };
+/**
+ * Converts a WebP image to a PNG file.
+ * @param {FormData} formData Contains the WebP file.
+ * @returns {Promise<Blob>} A promise that resolves to the PNG blob.
+ */
+export const convertWebpToPng = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/webp-to-png', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'WebP to PNG conversion failed.');
+    }
+};

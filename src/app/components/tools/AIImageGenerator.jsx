@@ -27,6 +27,14 @@ export default function AIImageGenerator() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    // Add a reset handler
+    const handleReset = () => {
+        setPrompt('');
+        setImageUrl(null);
+        setError(null);
+        setIsLoading(false);
+    };
+
     const handleGenerateImage = useCallback(async (e) => {
         e.preventDefault();
         if (!prompt.trim()) {
@@ -91,27 +99,36 @@ export default function AIImageGenerator() {
                         </button>
                     </form>
 
-                    {/* Image Display Area */}
-                     <div className="mt-10 border-t border-gray-200 pt-6">
-                        <div className="p-4 bg-slate-50 rounded-md">
-                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="text-lg font-bold text-slate-800 text-left">Generated Image</h3>
+                    {/* --- UPDATED: Conditional Image Display Area --- */}
+                    {/* This section only appears after the generate button is clicked */}
+                    {(isLoading || imageUrl) && (
+                        <>
+                            <div className="mt-10 border-t border-gray-200 pt-6">
+                                <div className="p-4 bg-slate-50 rounded-md">
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h3 className="text-lg font-bold text-slate-800 text-left">Generated Image</h3>
+                                    </div>
+                                    <div className="h-96 flex items-center justify-center rounded-md overflow-hidden">
+                                        {isLoading && <div className="text-center text-slate-500"><Spinner /><p className="mt-4 text-lg font-semibold animate-pulse">Generating your vision...</p></div>}
+                                        {!isLoading && imageUrl && <img src={imageUrl} alt={prompt} className="w-full h-full object-contain rounded-lg animate-fade-in" key={imageUrl} />}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="h-96 flex items-center justify-center rounded-md overflow-hidden">
-                                {isLoading && <div className="text-center text-slate-500"><Spinner /><p className="mt-4 text-lg font-semibold animate-pulse">Generating your vision...</p></div>}
-                                {!isLoading && !error && imageUrl && <img src={imageUrl} alt={prompt} className="w-full h-full object-contain rounded-lg animate-fade-in" key={imageUrl} />}
-                                {!isLoading && !error && !imageUrl && <div className="text-center text-slate-500"><ImageIcon /><p className="mt-4 text-lg">Your generated image will appear here.</p></div>}
-                           </div>
-                        </div>
-                    </div>
 
-                    {imageUrl && !isLoading && (
-                        <div className="my-8 space-y-4">
-                            <h3 className="text-2xl font-bold text-green-600">✓ Generation Complete!</h3>
-                            <a href={imageUrl} download={getDownloadFileName()} className="inline-block w-full sm:w-auto bg-purple-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-purple-700 transition-colors">
-                                Download Image
-                            </a>
-                        </div>
+                            {imageUrl && !isLoading && (
+                                <div className="my-8 space-y-4">
+                                    <h3 className="text-2xl font-bold text-green-600">✓ Generation Complete!</h3>
+                                    <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
+                                        <a href={imageUrl} download={getDownloadFileName()} className="w-full sm:w-auto bg-purple-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-purple-700 transition-colors">
+                                            Download Image
+                                        </a>
+                                        <button onClick={handleReset} className="w-full sm:w-auto bg-slate-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-slate-800 transition-colors">
+                                            Start Over
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </>
                     )}
 
                     <div className="my-5 border-t border-gray-200"></div>
@@ -136,25 +153,25 @@ export default function AIImageGenerator() {
                                 <div className="flex-shrink-0 w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
                                     <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 010 1.414L11 15l-4 6h12l-4-6 2.293-2.293a1 1 0 011.414 0L19 12M5 12l2.293 2.293a1 1 0 001.414 0L11 12l-4-6H3l2 6z"></path></svg>
                                 </div>
-                                <div><h4 className="text-lg font-semibold text-slate-800 mb-1">Powered by Advanced AI</h4><p className="text-slate-600">Utilizes a state-of-the-art model to generate stunning and creative visuals from any prompt.</p></div>
+                                <div><h3 className="text-lg font-semibold text-slate-800 mb-1">Powered by Advanced AI</h3><p className="text-slate-600">Utilizes a state-of-the-art model to generate stunning and creative visuals from any prompt.</p></div>
                             </div>
                             <div className="flex items-start space-x-4">
                                 <div className="flex-shrink-0 w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
                                     <svg className="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                 </div>
-                                <div><h4 className="text-lg font-semibold text-slate-800 mb-1">Instant Creation</h4><p className="text-slate-600">Go from idea to image in seconds. Perfect for artists, marketers, and content creators.</p></div>
+                                <div><h3 className="text-lg font-semibold text-slate-800 mb-1">Instant Creation</h3><p className="text-slate-600">Go from idea to image in seconds. Perfect for artists, marketers, and content creators.</p></div>
                             </div>
                            <div className="flex items-start space-x-4">
                                 <div className="flex-shrink-0 w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
                                     <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                                 </div>
-                                <div><h4 className="text-lg font-semibold text-slate-800 mb-1">High-Quality Output</h4><p className="text-slate-600">All images are generated as high-resolution PNG files, ready to use in any project.</p></div>
+                                <div><h3 className="text-lg font-semibold text-slate-800 mb-1">High-Quality Output</h3><p className="text-slate-600">All images are generated as high-resolution PNG files, ready to use in any project.</p></div>
                             </div>
                             <div className="flex items-start space-x-4">
                                 <div className="flex-shrink-0 w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
                                     <svg className="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 16v-2m8-8h2M4 12H2m15.364 6.364l-1.414-1.414M6.05 6.05l-1.414-1.414m12.728 0l-1.414 1.414M6.05 17.95l-1.414 1.414" /></svg>
                                 </div>
-                                <div><h4 className="text-lg font-semibold text-slate-800 mb-1">Completely Free</h4><p className="text-slate-600">Unleash your creativity without any costs. Generate as many images as you need.</p></div>
+                                <div><h3 className="text-lg font-semibold text-slate-800 mb-1">Completely Free</h3><p className="text-slate-600">Unleash your creativity without any costs. Generate as many images as you need.</p></div>
                             </div>
                         </div>
                     </div>
