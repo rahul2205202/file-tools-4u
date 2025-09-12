@@ -202,3 +202,21 @@ export const convertWebpToPng = async (formData) => {
         throw new Error(errorText || 'WebP to PNG conversion failed.');
     }
 };
+
+/**
+ * Converts an uploaded photo into a photorealistic figurine image.
+ * @param {FormData} formData Contains the image file.
+ * @returns {Promise<Blob>} A promise that resolves to the generated image blob.
+ */
+export const createFigurineFromImage = async (formData) => {
+    try {
+        const response = await localApi.post('/create-figurine', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        const errorText = await error.response?.data?.text();
+        throw new Error(errorText || 'AI figurine creation failed.');
+    }
+};
