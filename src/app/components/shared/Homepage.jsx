@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from "next/image";
+import figurineImage from '../../components/images/ai-figurine.png';
 
 // --- Helper Component for Tool Cards ---
 // Refined styling for a cleaner, more professional look
@@ -58,8 +60,51 @@ export default function Homepage() {
                 </div>
             </section>
 
+            <section className="py-10 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200">
+                        <Link 
+                            href="/ai-figurine-creator" 
+                            className="grid md:grid-cols-2 items-stretch group"
+                        >
+                        {/* Left Section: Full Image with Trending text above */}
+                        <div className="relative h-64 md:h-auto">
+                        {/* Image filling the entire section */}
+                        <Image 
+                            src={figurineImage} 
+                            alt="Nano Banana Figurine" 
+                            fill 
+                            className="object-cover" 
+                            priority
+                        />
+                        {/* Trending Text - Positioned Top */}
+                        <div className="absolute top-4 left-4">
+                            <span className="bg-white text-orange-700 font-bold text-sm px-4 py-1 rounded-full">
+                            🔥 Trending Now
+                            </span>
+                        </div>
+                        </div>
+
+                        {/* Right Info Section */}
+                        <div className="p-8 md:p-12 bg-white flex flex-col justify-center">
+                        <h2 className="text-3xl font-extrabold text-slate-800 mb-3">
+                            Nano Banana AI Figurine Creator
+                        </h2>
+                        <p className="text-slate-600 text-lg mb-6">
+                            Turn any photo into a hyper-realistic, collectible 3D figurine. 
+                            Be part of the viral trend everyone is talking about!
+                        </p>
+                        <span className="inline-block text-orange-600 font-semibold group-hover:underline">
+                            Try the Viral Tool →
+                        </span>
+                        </div>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Tools Section */}
-            <section id="tools" className="py-20 bg-white">
+            <section id="tools" className="py-10 bg-white">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
                         What can we help you with?
@@ -74,7 +119,7 @@ export default function Homepage() {
             </section>
 
             {/* Redesigned Features Section */}
-            <section className="bg-slate-50 py-20">
+            <section className="bg-white py-10">
                 <div className="max-w-6xl mx-auto text-center px-4">
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">Why Choose File Tools 4U?</h2>
                     <p className="text-slate-600 mb-12 max-w-2xl mx-auto">

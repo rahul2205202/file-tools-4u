@@ -1,5 +1,5 @@
 import React from 'react';
-import AIArtCreator from '../components/tools/AIFigurineCreater'; // Import the main component
+import AIArtCreator from '../components/tools/AIFigurineCreator'; // Import the main component
 
 // SEO metadata for the AI Figurine Creator page
 export const metadata = {
