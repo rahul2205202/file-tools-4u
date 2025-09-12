@@ -87,7 +87,7 @@ export default function Homepage() {
 
                         {/* Right Info Section */}
                         <div className="p-8 md:p-12 bg-white flex flex-col justify-center">
-                        <h2 className="text-3xl font-extrabold text-slate-800 mb-3">
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3">
                             Nano Banana AI Figurine Creator
                         </h2>
                         <p className="text-slate-600 text-lg mb-6">
