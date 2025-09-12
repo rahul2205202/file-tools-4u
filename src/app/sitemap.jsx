@@ -12,6 +12,7 @@ export default function sitemap() {
     '/jpeg-to-png',
     '/png-to-jpeg',
     '/photo-restorer',
+    '/ai-figurine-creator',
     '/webp-to-png',
     '/webp-converter',
     '/contact-us',
