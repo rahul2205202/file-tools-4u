@@ -15,7 +15,6 @@ export const metadata = {
 
 // The page component itself is very simple
 export default function AIFigurineCreatorPage() {
-    // The component name is AIArtCreator, but we're framing it as the Figurine Creator page
     return <AIArtCreator />;
 }
 

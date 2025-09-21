@@ -5,7 +5,42 @@ import axios from 'axios';
 const localApi = axios.create({
     baseURL: '/api'
 });
-
+// --- CORRECTED ERROR HANDLING FUNCTION ---
+// This helper function now safely handles both JSON and plain text error responses.
+const getErrorMessage = async (error) => {
+    let errorMessage = 'An unknown error occurred.';
+    if (error.response && error.response.data) {
+        // If the error response is a blob, it needs to be read as text.
+        if (error.response.data instanceof Blob) {
+            const errorText = await error.response.data.text();
+            try {
+                // Try to parse it as JSON
+                const parsedError = JSON.parse(errorText);
+                errorMessage = parsedError.error || errorText; // Fallback to raw text
+            } catch (e) {
+                // If parsing fails, use the raw text as the error message
+                errorMessage = errorText;
+            }
+        } 
+        // If it's already a JSON object with an error key
+        else if (typeof error.response.data === 'object' && error.response.data.error) {
+            errorMessage = error.response.data.error;
+        } 
+        // If it's just a plain string
+        else if (typeof error.response.data === 'string') {
+             // It could be a simple string or stringified JSON
+            try {
+                const parsedError = JSON.parse(error.response.data);
+                errorMessage = parsedError.error || error.response.data;
+            } catch (e) {
+                errorMessage = error.response.data;
+            }
+        }
+    } else {
+        errorMessage = error.message;
+    }
+    return errorMessage;
+};
 // --- Service Functions ---
 
 /**
@@ -218,5 +253,16 @@ export const createFigurineFromImage = async (formData) => {
     } catch (error) {
         const errorText = await error.response?.data?.text();
         throw new Error(errorText || 'AI figurine creation failed.');
+    }
+};
+export const generateHashtags = async (formData) => {
+    try {
+        const response = await localApi.post('/generate-hashtags', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'text', // Expecting a plain text string
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
     }
 };
