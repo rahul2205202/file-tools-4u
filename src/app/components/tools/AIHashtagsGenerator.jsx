@@ -115,6 +115,9 @@ export default function AIHashtagsGenerator() {
                                 onChange={(e) => setTextContent(e.target.value)}
                             />
                             <p className="font-bold text-center">OR</p>
+                            <label htmlFor="text-input" className="block text-lg font-semibold text-slate-700 mb-2 text-left">
+                                Upload an Image
+                            </label>
                             <input id="hashtag-upload-input" type="file" accept="image/*" onChange={handleFileChange} 
                                 className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:bg-purple-100 file:text-purple-700 hover:file:bg-purple-200"
                             />

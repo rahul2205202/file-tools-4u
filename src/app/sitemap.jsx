@@ -13,6 +13,7 @@ export default function sitemap() {
     '/png-to-jpeg',
     '/photo-restorer',
     '/ai-figurine-creator',
+    '/ai-hashtag-generator',
     '/webp-to-png',
     '/webp-converter',
     '/contact-us',
