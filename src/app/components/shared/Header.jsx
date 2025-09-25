@@ -16,8 +16,11 @@ export default function Header() {
             links: [
                 { href: '/image-compressor', text: 'Image Compressor' },
                 { href: '/jpeg-to-png', text: 'JPEG to PNG' },
+                { href: '/jpeg-to-webp', text: 'JPEG to WebP' },
                 { href: '/webp-to-png', text: 'WebP to PNG' },
+                { href: '/webp-to-jpeg', text: 'WebP to JPEG' },
                 { href: '/png-to-jpeg', text: 'PNG to JPEG' },
+                { href: '/png-to-webp', text: 'PNG to WebP' },
             ],
         },
         {

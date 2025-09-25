@@ -266,3 +266,45 @@ export const generateHashtags = async (formData) => {
         throw new Error(await getErrorMessage(error));
     }
 };
+// --- NEW FUNCTION ADDED ---
+/**
+ * Converts a PNG image to a WebP image.
+ * @param {FormData} formData Contains the PNG file.
+ * @returns {Promise<Blob>} A promise that resolves to the converted WebP blob.
+ */
+export const convertPngToWebp = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/png-to-webp', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};
+
+
+export const convertJpegToWebp = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/jpeg-to-webp', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};
+
+export const convertWebpToJpeg = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/webp-to-jpeg', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};
