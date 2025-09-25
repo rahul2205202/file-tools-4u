@@ -191,7 +191,7 @@ export default function JpegToPngConverter() {
                                 <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Transparency Support</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">Transparency Support</h3>
                                 <p className="text-slate-600">PNG files support transparent backgrounds, making them ideal for logos, icons, and web graphics.</p>
                             </div>
                         </div>
@@ -200,7 +200,7 @@ export default function JpegToPngConverter() {
                                 <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M20.25 20.25v-4.5m0 4.5h-4.5m4.5 0L15 15m-6 0l-3 3m0 0v-4.5m0 4.5h4.5" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Lossless Compression</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">Lossless Compression</h3>
                                 <p className="text-slate-600">PNG uses lossless compression, ensuring no quality is lost when you convert from JPEG.</p>
                             </div>
                         </div>
@@ -209,7 +209,7 @@ export default function JpegToPngConverter() {
                                 <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Secure & Private</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">Secure & Private</h3>
                                 <p className="text-slate-600">All uploaded files are automatically and permanently deleted from our servers after one hour.</p>
                             </div>
                         </div>
@@ -218,7 +218,7 @@ export default function JpegToPngConverter() {
                                 <svg className="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">No Software Installation</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">No Software Installation</h3>
                                 <p className="text-slate-600">Our converter works entirely in your browser. No downloads or installations are required.</p>
                             </div>
                         </div>

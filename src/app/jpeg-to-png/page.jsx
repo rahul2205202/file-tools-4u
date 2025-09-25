@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageConverter from '../components/tools/JepgToPngConverter'; // 1. Import the tool component
+import JpegToPngConverter from '../components/tools/JepgToPngConverter'; // 1. Import the tool component
 
 // 2. SEO metadata is defined in the page file
 export const metadata = {
@@ -13,5 +13,5 @@ export const metadata = {
 
 // 3. The page component renders the tool
 export default function ImageConverterPage() {
-    return <ImageConverter />;
+    return <JpegToPngConverter />;
 }
