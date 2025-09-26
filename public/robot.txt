@@ -1,6 +1,9 @@
-# Allow all web crawlers to access the site
+# Allow all crawlers to access the site
 User-agent: *
 Allow: /
 
-# Provide the location of the sitemap
+# Block crawlers from accessing the backend API routes
+Disallow: /api/
+
+# Specify the location of the sitemap
 Sitemap: https://filetools4u.com/sitemap.xml

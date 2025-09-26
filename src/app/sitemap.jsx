@@ -10,11 +10,14 @@ export default function sitemap() {
     '/generate-ai-image',
     '/image-to-pdf',
     '/jpeg-to-png',
+    '/jpeg-to-webp',
     '/png-to-jpeg',
+    '/png-to-webp',
     '/photo-restorer',
     '/ai-figurine-creator',
     '/ai-hashtag-generator',
     '/webp-to-png',
+    '/webp-to-jpeg',
     '/webp-converter',
     '/contact-us',
     '/privacy-policy',
@@ -25,7 +28,7 @@ export default function sitemap() {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly', // How often the content is likely to change
-    priority: 0.8, // Priority relative to other pages on your site
+    priority: 1, // Priority relative to other pages on your site
   }));
 
   return [
