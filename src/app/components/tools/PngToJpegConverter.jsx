@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 // Make sure this path is correct for your project structure
 import { convertPngToJpeg } from '../../../lib/apiService';
+import DataProtection from '../shared/SecurityAssurance';
 
 export default function PngToJpegConverter() {
     const [selectedFile, setSelectedFile] = useState(null);

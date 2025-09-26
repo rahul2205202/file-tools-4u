@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import figurineImage from '../../components/images/ai-figurine.png';
+import DataProtection from './SecurityAssurance';
 
 // --- Helper Component for Tool Cards ---
 // Refined styling for a cleaner, more professional look
@@ -153,6 +154,9 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
+            <div className='max-w-4xl mx-auto px-4 mb-16'>
+                <DataProtection />
+            </div>
         </div>
     );
 }
