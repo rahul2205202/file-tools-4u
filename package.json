@@ -14,6 +14,7 @@
     "formidable": "^3.5.4",
     "framer-motion": "^12.23.12",
     "fs": "^0.0.1-security",
+    "heic-convert": "^2.1.0",
     "jszip": "^3.10.1",
     "lib": "^5.1.0",
     "lucide-react": "^0.542.0",

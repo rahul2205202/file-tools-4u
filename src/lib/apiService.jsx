@@ -308,3 +308,26 @@ export const convertWebpToJpeg = async (formData) => {
         throw new Error(await getErrorMessage(error));
     }
 };
+
+export const convertHeicToJpeg = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/heic-to-jpeg', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};
+export const convertHeicToPng = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/heic-to-png', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};

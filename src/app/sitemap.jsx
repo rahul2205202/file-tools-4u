@@ -18,6 +18,8 @@ export default function sitemap() {
     '/ai-hashtag-generator',
     '/webp-to-png',
     '/webp-to-jpeg',
+    '/heic-to-jpeg',
+    '/heic-to-png',
     '/webp-converter',
     '/contact-us',
     '/privacy-policy',

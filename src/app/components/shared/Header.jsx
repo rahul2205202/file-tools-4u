@@ -21,6 +21,8 @@ export default function Header() {
                 { href: '/webp-to-jpeg', text: 'WebP to JPEG' },
                 { href: '/png-to-jpeg', text: 'PNG to JPEG' },
                 { href: '/png-to-webp', text: 'PNG to WebP' },
+                { href: '/heic-to-jpeg', text: 'HEIC to JPEG' },
+                { href: '/heic-to-png', text: 'HEIC to PNG' },
             ],
         },
         {
