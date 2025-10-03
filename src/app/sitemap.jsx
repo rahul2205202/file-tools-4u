@@ -29,8 +29,8 @@ export default function sitemap() {
   const routeUrls = routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly', // How often the content is likely to change
-    priority: 1, // Priority relative to other pages on your site
+    changeFrequency: 'daily', // How often the content is likely to change
+    priority: 0.9, // Priority relative to other pages on your site
   }));
 
   return [
@@ -38,7 +38,7 @@ export default function sitemap() {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'daily',
       priority: 1,
     },
     ...routeUrls,
