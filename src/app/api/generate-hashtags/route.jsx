@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 import { Buffer } from 'buffer';
 
-// This allows the function to run for up to 60 seconds
 export const maxDuration = 60;
 
 export async function POST(request) {
@@ -52,7 +51,6 @@ export async function POST(request) {
             throw new Error('AI did not return a valid response.');
         }
         
-        // Return the plain text response
         return new NextResponse(generatedHashtags, {
             status: 200,
             headers: { 'Content-Type': 'text/plain' },
