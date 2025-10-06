@@ -20,9 +20,6 @@ export async function POST(request) {
             updateMetadata: false 
         });
 
-        // --- NEW, MORE ROBUST LOGIC ---
-        
-        // 1. Find all unique image objects in the PDF
         const imageRefs = new Set();
         pdfDoc.getPages().forEach(page => {
             const resources = page.node.Resources();
@@ -38,7 +35,6 @@ export async function POST(request) {
             }
         });
 
-        // 2. Process each unique image
         const imagePromises = Array.from(imageRefs).map(async (ref) => {
             const image = pdfDoc.context.lookup(ref);
             if (image.get(PDFName.of('Subtype')) !== PDFName.of('Image')) return;
@@ -48,7 +44,6 @@ export async function POST(request) {
                 const sharpImage = sharp(imageBytes);
                 const metadata = await sharpImage.metadata();
 
-                // Aggressive downsampling logic
                 let maxDimension = 0;
                 if (quality <= 0.2) maxDimension = 400;
                 else if (quality <= 0.5) maxDimension = 720;
@@ -69,10 +64,8 @@ export async function POST(request) {
                     .jpeg({ quality: Math.round(quality * 100), mozjpeg: true })
                     .toBuffer();
 
-                // 3. Embed the new, compressed image into the PDF
                 const newImage = await pdfDoc.embedJpg(compressedImageBytes);
 
-                // 4. Replace the old image reference with the new one everywhere it's used
                 pdfDoc.context.assign(ref, newImage.ref);
 
             } catch (e) {
@@ -81,8 +74,6 @@ export async function POST(request) {
         });
 
         await Promise.all(imagePromises);
-
-        // --- END OF NEW LOGIC ---
 
         const compressedPdfBytes = await pdfDoc.save();
 

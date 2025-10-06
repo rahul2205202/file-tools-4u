@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import convert from 'heic-convert';
 
-// Increase the body size limit to handle larger HEIC files
 export const config = {
     api: {
         bodyParser: {
@@ -21,18 +20,15 @@ export async function POST(request) {
         
         const inputBuffer = Buffer.from(await file.arrayBuffer());
 
-        // Use the heic-convert library to perform the conversion specifically to PNG
         const outputBuffer = await convert({
-            buffer: inputBuffer, // The HEIC file buffer
-            format: 'PNG'       // The output format
+            buffer: inputBuffer,
+            format: 'PNG'
         });
 
-        // Return the new PNG image file
         return new NextResponse(outputBuffer, {
             status: 200,
             headers: {
                 'Content-Type': 'image/png',
-                // Suggest a filename for the download, changing the extension to .png
                 'Content-Disposition': `attachment; filename="${file.name.replace(/\.[^/.]+$/, "")}.png"`,
             },
         });

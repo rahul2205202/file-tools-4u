@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import sharp from 'sharp'; // A modern, high-performance image processing library for Node.js
+import sharp from 'sharp';
 
 export async function POST(request) {
     try {
@@ -14,18 +14,15 @@ export async function POST(request) {
             return new NextResponse('Quality must be between 0.1 and 1.0.', { status: 400 });
         }
 
-        // Convert the uploaded file into a buffer that Sharp can read
         const fileBuffer = Buffer.from(await file.arrayBuffer());
 
-        // Use Sharp to process the image. We convert to JPEG as it's the best format for quality-based compression.
         const compressedImageBuffer = await sharp(fileBuffer)
             .jpeg({ 
                 quality: Math.round(quality * 100),
-                mozjpeg: true, // Use mozjpeg for better compression
+                mozjpeg: true,
             })
             .toBuffer();
 
-        // Return the compressed image as a blob in the response
         return new NextResponse(compressedImageBuffer, {
             status: 200,
             headers: {
