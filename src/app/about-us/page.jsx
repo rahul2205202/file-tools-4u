@@ -1,6 +1,4 @@
 import React from 'react';
-
-// SEO Metadata for the About Us page
 export const metadata = {
     title: 'About File Tools 4U | Our Mission & Story',
     description: 'Learn about the mission behind File Tools 4U, your go-to destination for free, high-quality, and easy-to-use online file utilities.',
@@ -9,7 +7,6 @@ export const metadata = {
     },
 };
 
-// --- Helper Component for Feature Cards ---
 const BeliefCard = ({ icon, title, children }) => (
     <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
         <div className="flex-shrink-0 w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
@@ -27,7 +24,6 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 py-10 sm:py-16">
                 <div className="w-full max-w-5xl mx-auto">
                     
-                    {/* Hero Section */}
                     <section className="text-center mb-16">
                         <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold text-slate-800 mb-4">
                             Making Digital Tools Simple.
@@ -37,7 +33,6 @@ export default function AboutPage() {
                         </p>
                     </section>
 
-                    {/* Our Story Section */}
                     <section className="mb-16">
                          <div className="prose prose-lg max-w-none text-slate-700 mx-auto text-center">
                             <h2 className="text-3xl font-bold text-slate-800">Our Story</h2>
@@ -49,7 +44,6 @@ export default function AboutPage() {
 
                     <div className="my-12 border-t border-gray-200"></div>
 
-                    {/* What We Believe In Section - Redesigned */}
                     <section className="mb-16">
                         <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">What We Believe In</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -76,7 +70,6 @@ export default function AboutPage() {
 
                      <div className="my-12 border-t border-gray-200"></div>
 
-                    {/* Looking Ahead Section */}
                     <section>
                          <div className="prose prose-lg max-w-none text-slate-700 mx-auto text-center">
                             <h2 className="text-3xl font-bold text-slate-800">Looking Ahead</h2>

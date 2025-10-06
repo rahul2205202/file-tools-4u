@@ -1,7 +1,6 @@
 import React from 'react';
 import HeicToJpegConverter from '../components/tools/HeicToJpegConverter';
 
-// SEO metadata for the HEIC to JPEG Converter page
 export const metadata = {
     title: 'Free HEIC to JPEG Converter | Convert iPhone Photos Online | File Tools 4U',
     description: 'Easily convert your Apple HEIC photos to the universally compatible JPEG (.jpg) format for free. Our online tool is fast, secure, and perfect for sharing iPhone pictures on any device or platform.',
@@ -13,7 +12,6 @@ export const metadata = {
     },
 };
 
-// The page component itself is very simple
 export default function HeicToJpegPage() {
     return <HeicToJpegConverter />;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
-import Homepage from './components/shared/Homepage'; // Import the main component
+import Homepage from './components/shared/Homepage';
 
-// SEO metadata for the homepage
 export const metadata = {
     title: 'File Tools 4U - Free Online Image & PDF Tools',
     description: 'Your one-stop destination for free online file utilities. Compress, convert, and create images and PDFs with our powerful, easy-to-use tools.',
@@ -11,7 +10,6 @@ export const metadata = {
     },
 };
 
-// The page component itself is very simple
 export default function HomePage() {
     return <Homepage />;
 }

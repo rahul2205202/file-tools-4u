@@ -1,6 +1,5 @@
 import React from 'react';
 
-// SEO metadata for the Privacy Policy page
 export const metadata = {
     title: 'Privacy Policy | File Tools 4U',
     description: 'Read the Privacy Policy for File Tools 4U to understand how we handle your data and protect your privacy when you use our free online file conversion and compression tools.',

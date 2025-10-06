@@ -1,6 +1,5 @@
 import React from 'react';
 
-// SEO metadata for the Terms and Conditions page
 export const metadata = {
     title: 'Terms and Conditions | File Tools 4U',
     description: 'Please read the Terms and Conditions for using the File Tools 4U website and its free online file conversion, compression, and creation tools.',
