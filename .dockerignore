@@ -1,20 +1,14 @@
-# Dependency directories
 node_modules
 
-# Next.js build output
 .next
 
-# Optional: Local environment variables
 .env.local
 
-# Git files
 .git
 .gitignore
 
-# Docker files
 Dockerfile
 .dockerignore
 
-# Test files
 *.test.js
 *.spec.js
