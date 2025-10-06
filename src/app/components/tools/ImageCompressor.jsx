@@ -1,15 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-// Make sure this path is correct for your project structure
 import { compressImage } from '../../../lib/apiService'; 
 
 export default function ImageCompressor() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [compressedImageUrl, setCompressedImageUrl] = useState(null);
-    const [quality, setQuality] = useState(80); // Use a 0-100 scale for clarity
+    const [quality, setQuality] = useState(80);
     
     const [originalSize, setOriginalSize] = useState(0);
     const [compressedSize, setCompressedSize] = useState(0);
@@ -18,7 +16,6 @@ export default function ImageCompressor() {
     const [error, setError] = useState(null);
     const [logMessage, setLogMessage] = useState('');
 
-    // Clean up object URLs on unmount or when previews change
     useEffect(() => {
         return () => {
             if (imagePreview) URL.revokeObjectURL(imagePreview);
@@ -26,7 +23,6 @@ export default function ImageCompressor() {
         };
     }, [imagePreview, compressedImageUrl]);
     
-    // Resets the component to its initial state for a new compression
     const handleReset = () => {
         setSelectedFile(null);
         setImagePreview(null);
@@ -39,11 +35,10 @@ export default function ImageCompressor() {
         if (fileInput) fileInput.value = '';
     };
 
-    // Handles the file selection from the input
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file && file.type.startsWith('image/')) {
-            handleReset(); // Clear previous state
+            handleReset();
             setSelectedFile(file);
             setImagePreview(URL.createObjectURL(file));
             setOriginalSize(file.size);
@@ -52,7 +47,6 @@ export default function ImageCompressor() {
         }
     };
 
-    // Handles the form submission and API call for compression
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!selectedFile) {
@@ -68,7 +62,6 @@ export default function ImageCompressor() {
 
         const formData = new FormData();
         formData.append('file', selectedFile);
-        // *** FIX: Convert quality from 0-100 scale to 0.0-1.0 scale for the API ***
         formData.append('quality', quality / 100); 
 
         try {
@@ -84,7 +77,6 @@ export default function ImageCompressor() {
         }
     };
 
-    // Helper function to format file size for display
     const formatFileSize = (bytes) => {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -93,7 +85,6 @@ export default function ImageCompressor() {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     };
     
-    // Calculates the percentage reduction in file size
     const getReductionPercent = () => {
         if (originalSize === 0 || compressedSize === 0) return 0;
         return Math.round(((originalSize - compressedSize) / originalSize) * 100);
@@ -102,8 +93,6 @@ export default function ImageCompressor() {
     return (
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
-
-                {/* Main Compressor Component */}
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>
@@ -197,7 +186,6 @@ export default function ImageCompressor() {
                 
                 <div className="my-5 border-t border-gray-200"></div>
                 
-                {/* How it Works Section */}
                 <div className="mt-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Compress an Image</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
@@ -209,7 +197,6 @@ export default function ImageCompressor() {
 
                 <div className="my-5 border-t border-gray-200"></div>
 
-                {/* Features Section */}
                 <div className="mt-10 max-w-5xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Compression Features</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">

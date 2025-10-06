@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-// Note: You will need to add the `convertHeicToPng` function to your apiService.js file
 import { convertHeicToPng } from '../../../lib/apiService'; 
-import FaqItem from '../shared/FaqItem'; // Assuming you have the reusable FAQ component
+import FaqItem from '../shared/FaqItem';
 
 export default function HeicToPngConverter() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -17,7 +16,6 @@ export default function HeicToPngConverter() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Cleanup object URLs to prevent memory leaks
         return () => {
             if (originalImagePreview) URL.revokeObjectURL(originalImagePreview);
             if (convertedImageUrl) URL.revokeObjectURL(convertedImageUrl);
@@ -54,7 +52,7 @@ export default function HeicToPngConverter() {
                 return;
             }
             setSelectedFile(file);
-            setOriginalImagePreview(null); // Browsers can't preview HEIC, so we keep this null
+            setOriginalImagePreview(null);
             setOriginalSize(file.size);
         } else {
             handleReset();

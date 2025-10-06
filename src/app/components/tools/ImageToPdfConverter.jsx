@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-// Make sure this path is correct for your project structure
 import { convertImagesToPdf } from '../../../lib/apiService';
 
 export default function ImageToPdfConverter() {
@@ -16,14 +14,12 @@ export default function ImageToPdfConverter() {
     const [logMessage, setLogMessage] = useState('');
 
     useEffect(() => {
-        // Cleanup object URLs to prevent memory leaks
         return () => {
             imagePreviews.forEach(file => URL.revokeObjectURL(file.url));
             if (pdfUrl) URL.revokeObjectURL(pdfUrl);
         };
     }, [imagePreviews, pdfUrl]);
 
-    // Resets the component to its initial state
     const handleReset = () => {
         setSelectedFiles([]);
         setImagePreviews([]);
@@ -36,7 +32,6 @@ export default function ImageToPdfConverter() {
         if (fileInput) fileInput.value = '';
     };
     
-    // Handles file selection from the input
     const handleFileChange = (event) => {
         const files = Array.from(event.target.files);
         if (files.length > 0) {
@@ -50,7 +45,6 @@ export default function ImageToPdfConverter() {
         }
     };
 
-    // Handles the form submission and API call
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (selectedFiles.length === 0) {
@@ -64,7 +58,6 @@ export default function ImageToPdfConverter() {
         setUploadProgress(0);
         setLogMessage('Preparing your document...');
 
-        // This function will be passed to the API call to track progress
         const handleUploadProgress = (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             setUploadProgress(percentCompleted);
@@ -76,7 +69,6 @@ export default function ImageToPdfConverter() {
         formData.append('filename', getDownloadFileName());
 
         try {
-            // Calling your actual API function
             const pdfBlob = await convertImagesToPdf(formData, handleUploadProgress);
             setLogMessage('Conversion successful!');
             setPdfUrl(URL.createObjectURL(pdfBlob));
@@ -88,7 +80,6 @@ export default function ImageToPdfConverter() {
         }
     };
 
-    // Generates a sanitized filename for the download
     const getDownloadFileName = () => {
         const sanitizedName = pdfFileName.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
         return `${sanitizedName || 'download'}.pdf`;
@@ -97,8 +88,6 @@ export default function ImageToPdfConverter() {
     return (
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
-
-                {/* Main Converter Component */}
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-red-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M4 3C4 1.89543 4.89543 1 6 1H14.5858C15.1162 1 15.625 1.21071 16.002 1.58787L20.4121 5.99797C20.7893 6.375 21 6.88379 21 7.41421V21C21 22.1046 20.1046 23 19 23H6C4.89543 23 4 22.1046 4 21V3ZM6 3H14V8C14 8.55228 14.4477 9 15 9H20V21H6V3Z"/></svg>
@@ -174,7 +163,6 @@ export default function ImageToPdfConverter() {
                     )}
                 </div>
                 <div className="my-5 border-t border-gray-200"></div>
-                {/* How it Works Section */}
                 <div className="mt-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">Create a PDF in 3 Simple Steps</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
@@ -184,7 +172,6 @@ export default function ImageToPdfConverter() {
                     </div>
                 </div>
                 <div className="my-5 border-t border-gray-200"></div>
-                {/* Features Section */}
                 <div className="mt-10 max-w-5xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Features</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">

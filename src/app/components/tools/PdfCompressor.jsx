@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { compressPdf } from '../../../lib/apiService'; // Using the path alias
+import { compressPdf } from '../../../lib/apiService';
 
 export default function PdfCompressor() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -145,8 +145,6 @@ export default function PdfCompressor() {
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">3</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Download</h3><p className="text-slate-600">Your smaller PDF will be ready instantly. Click to download and you're all set!</p></div>
                     </div>
                 </div>
-
-                {/* --- NEW: Features Section --- */}
                 <div className="my-5 border-t border-gray-200"></div>
                 <div className="mt-10 max-w-5xl mx-auto">
                     <h3 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Features</h3>

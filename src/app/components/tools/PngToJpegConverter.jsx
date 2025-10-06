@@ -1,10 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-// Make sure this path is correct for your project structure
 import { convertPngToJpeg } from '../../../lib/apiService';
-import DataProtection from '../shared/SecurityAssurance';
 
 export default function PngToJpegConverter() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -15,14 +12,12 @@ export default function PngToJpegConverter() {
     const [logMessage, setLogMessage] = useState('');
 
     useEffect(() => {
-        // Cleanup object URLs to prevent memory leaks
         return () => {
             if (imagePreview) URL.revokeObjectURL(imagePreview);
             if (convertedImageUrl) URL.revokeObjectURL(convertedImageUrl);
         };
     }, [imagePreview, convertedImageUrl]);
 
-    // Resets the component to its initial state
     const handleReset = () => {
         setSelectedFile(null);
         setImagePreview(null);
@@ -33,7 +28,6 @@ export default function PngToJpegConverter() {
         if (fileInput) fileInput.value = '';
     };
 
-    // Handles file selection from the input
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -41,13 +35,12 @@ export default function PngToJpegConverter() {
                 setError('Invalid file type. Please upload a PNG (.png) image.');
                 return;
             }
-            handleReset(); // Reset previous state on new file selection
+            handleReset();
             setSelectedFile(file);
             setImagePreview(URL.createObjectURL(file));
         }
     };
 
-    // Handles the form submission and API call
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!selectedFile) {
@@ -62,10 +55,9 @@ export default function PngToJpegConverter() {
 
         const formData = new FormData();
         formData.append('file', selectedFile);
-        formData.append('toFormat', 'jpeg'); // Hardcoded to 'jpeg'
+        formData.append('toFormat', 'jpeg');
 
         try {
-            // This function is imported from your apiService file
             const imageBlob = await convertPngToJpeg(formData); 
             setLogMessage('Conversion successful!');
             setConvertedImageUrl(URL.createObjectURL(imageBlob));
@@ -77,7 +69,6 @@ export default function PngToJpegConverter() {
         }
     };
 
-    // Generates a sanitized filename for the download
     const getDownloadFileName = () => {
         if (!selectedFile) return `converted_image.jpeg`;
         const nameWithoutExtension = selectedFile.name.split('.').slice(0, -1).join('.') || 'download';
@@ -88,7 +79,6 @@ export default function PngToJpegConverter() {
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
 
-                {/* Main Converter Component */}
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                          <svg className="w-10 h-10 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
@@ -172,7 +162,6 @@ export default function PngToJpegConverter() {
                 
                 <div className="my-5 border-t border-gray-200"></div>
                 
-                {/* How it Works Section */}
                 <div className="mt-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Convert PNG to JPEG</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
@@ -184,7 +173,6 @@ export default function PngToJpegConverter() {
 
                 <div className="my-5 border-t border-gray-200"></div>
 
-                {/* Features Section */}
                 <div className="mt-10 max-w-5xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Why Convert PNG to JPEG?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">

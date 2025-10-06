@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-// Note: You will need to add the `convertJpegToWebp` function to your apiService.js file
 import { convertJpegToWebp } from '../../../lib/apiService'; 
 
 export default function JpegToWebpConverter() {
@@ -16,7 +15,6 @@ export default function JpegToWebpConverter() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Cleanup object URLs to prevent memory leaks
         return () => {
             if (originalImagePreview) URL.revokeObjectURL(originalImagePreview);
             if (convertedImageUrl) URL.revokeObjectURL(convertedImageUrl);

@@ -16,7 +16,6 @@ export default function PngToWebpConverter() {
 
     const fileInputRef = useRef(null);
 
-    // ✅ Cleanup object URLs properly
     useEffect(() => {
         return () => {
             if (originalImagePreview) URL.revokeObjectURL(originalImagePreview);
@@ -70,7 +69,7 @@ export default function PngToWebpConverter() {
         formData.append('file', selectedFile);
 
         try {
-            const convertedBlob = await convertPngToWebp(formData); // should return Blob
+            const convertedBlob = await convertPngToWebp(formData);
             setConvertedImageUrl(URL.createObjectURL(convertedBlob));
             setConvertedSize(convertedBlob.size);
         } catch (err) {
@@ -99,14 +98,12 @@ export default function PngToWebpConverter() {
             <div className="container mx-auto px-4 py-10 sm:py-10">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     
-                    {/* Header */}
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691V5.25a2.25 2.25 0 00-2.25-2.25L10.5 3z" /></svg>
                         <h1 className="text-4xl sm:text-5xl font-bold text-slate-800">PNG to WebP Converter</h1>
                     </div>
                     <p className="text-lg text-slate-500 mb-8">Convert your PNG images to the modern, high-efficiency WebP format.</p>
 
-                    {/* Error */}
                     {error && (
                         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md my-4 text-left" role="alert">
                             <strong className="font-bold">Error: </strong>
@@ -114,7 +111,6 @@ export default function PngToWebpConverter() {
                         </div>
                     )}
                     
-                    {/* Upload & Convert */}
                     {!isLoading && !convertedImageUrl && (
                         <form onSubmit={handleSubmit}>
                             {!selectedFile && (
@@ -151,7 +147,6 @@ export default function PngToWebpConverter() {
                         </form>
                     )}
 
-                    {/* Loading */}
                     {isLoading && (
                         <div className="my-8 max-w-2xl mx-auto">
                             <h3 className="text-xl font-semibold text-slate-700 mb-4">Converting... Please wait.</h3>
@@ -161,7 +156,6 @@ export default function PngToWebpConverter() {
                         </div>
                     )}
                     
-                    {/* Download */}
                     {convertedImageUrl && !isLoading && (
                         <div className="my-8 space-y-6">
                             <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
@@ -171,11 +165,9 @@ export default function PngToWebpConverter() {
                         </div>
                     )}
 
-                    {/* Preview Section */}
                     {(originalImagePreview || convertedImageUrl) && (
                         <div className="mt-10 border-t border-gray-200 pt-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Original */}
                                 <div>
                                     <div className="flex justify-between items-center mb-2">
                                         <h3 className="text-lg font-bold text-slate-800">Original (PNG)</h3>
@@ -185,8 +177,6 @@ export default function PngToWebpConverter() {
                                         <img src={originalImagePreview} alt="Original PNG preview" className="max-h-full max-w-full object-contain" />
                                     </div>
                                 </div>
-
-                                {/* Converted */}
                                 <div>
                                     <div className="flex justify-between items-center mb-2">
                                         <h3 className="text-lg font-bold text-slate-800">Converted (WebP)</h3>

@@ -1,16 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-// Assume you will create a 'convertImage' function in your apiService file
-// that can handle WebP conversion.
 import { convertToWebp } from '../../../lib/apiService'; 
 
 export default function WebpConverter() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [convertedImageUrl, setConvertedImageUrl] = useState(null);
-    const [quality, setQuality] = useState(75); // Default quality for WebP
+    const [quality, setQuality] = useState(75);
     
     const [originalSize, setOriginalSize] = useState(0);
     const [convertedSize, setConvertedSize] = useState(0);
@@ -19,7 +16,6 @@ export default function WebpConverter() {
     const [error, setError] = useState(null);
     const [logMessage, setLogMessage] = useState('');
 
-    // Clean up object URLs on unmount or when previews change
     useEffect(() => {
         return () => {
             if (imagePreview) URL.revokeObjectURL(imagePreview);
@@ -27,7 +23,6 @@ export default function WebpConverter() {
         };
     }, [imagePreview, convertedImageUrl]);
     
-    // Resets the component for a new conversion
     const handleReset = () => {
         setSelectedFile(null);
         setImagePreview(null);
@@ -40,11 +35,10 @@ export default function WebpConverter() {
         if (fileInput) fileInput.value = '';
     };
 
-    // Handles file selection
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file && file.type.startsWith('image/')) {
-            handleReset(); // Clear previous state
+            handleReset();
             setSelectedFile(file);
             setImagePreview(URL.createObjectURL(file));
             setOriginalSize(file.size);
@@ -53,7 +47,6 @@ export default function WebpConverter() {
         }
     };
 
-    // Handles the form submission to the API
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!selectedFile) {
@@ -69,11 +62,11 @@ export default function WebpConverter() {
 
         const formData = new FormData();
         formData.append('file', selectedFile);
-        formData.append('toFormat', 'webp'); // Specify WebP format
-        formData.append('quality', quality); // Send quality setting
+        formData.append('toFormat', 'webp');
+        formData.append('quality', quality);
 
         try {
-            const convertedBlob = await convertToWebp(formData); // Use a generic convert function
+            const convertedBlob = await convertToWebp(formData);
             setConvertedImageUrl(URL.createObjectURL(convertedBlob));
             setConvertedSize(convertedBlob.size);
             setLogMessage('Conversion successful!');
@@ -85,7 +78,6 @@ export default function WebpConverter() {
         }
     };
 
-    // Helper to format file size
     const formatFileSize = (bytes) => {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -94,7 +86,6 @@ export default function WebpConverter() {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     };
     
-    // Calculates size reduction percentage
     const getReductionPercent = () => {
         if (originalSize === 0 || convertedSize === 0) return 0;
         return Math.round(((originalSize - convertedSize) / originalSize) * 100);
@@ -104,7 +95,6 @@ export default function WebpConverter() {
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
 
-                {/* Main Converter Component */}
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z" /></svg>
@@ -198,7 +188,6 @@ export default function WebpConverter() {
                 
                 <div className="my-5 border-t border-gray-200"></div>
                 
-                {/* How it Works Section */}
                 <div className="mt-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Convert to WebP</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
@@ -210,7 +199,6 @@ export default function WebpConverter() {
 
                 <div className="my-5 border-t border-gray-200"></div>
 
-                {/* Features Section */}
                 <div className="mt-10 max-w-5xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Why Use WebP?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">

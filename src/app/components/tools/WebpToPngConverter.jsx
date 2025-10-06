@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { convertWebpToPng } from '../../../lib/apiService'; // Using the path alias
+import { convertWebpToPng } from '../../../lib/apiService';
 
 export default function WebpToPngConverter() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -15,7 +15,6 @@ export default function WebpToPngConverter() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Cleanup object URLs to prevent memory leaks
         return () => {
             if (originalImagePreview) URL.revokeObjectURL(originalImagePreview);
             if (convertedImageUrl) URL.revokeObjectURL(convertedImageUrl);
@@ -37,11 +36,10 @@ export default function WebpToPngConverter() {
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-             // Reset previous state on new file selection
             handleReset();
             if (file.type !== 'image/webp') {
                 setError('Invalid file type. Please upload a WebP (.webp) image.');
-                event.target.value = ''; // Clear the input
+                event.target.value = '';
                 return;
             }
             setSelectedFile(file);
