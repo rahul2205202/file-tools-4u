@@ -4,8 +4,6 @@ import Image from "next/image";
 import figurineImage from '../../components/images/ai-figurine.png';
 import DataProtection from './SecurityAssurance';
 
-// --- Helper Component for Tool Cards ---
-// Refined styling for a cleaner, more professional look
 const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     const colorThemes = {
         red: { bg: 'bg-red-600', hoverBorder: 'hover:border-red-500' },
@@ -29,9 +27,7 @@ const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     );
 };
 
-// --- Main Homepage Component ---
 export default function Homepage() {
-    // Icons for the tool cards
     const icons = {
         pdfCompressor: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>,
         imgCompressor: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
@@ -45,7 +41,6 @@ export default function Homepage() {
 
     return (
         <div className="w-full bg-white font-sans">
-            {/* Hero Section */}
             <section className="text-center py-20 sm:py-24 bg-white relative">
                 <div className="absolute inset-0 bg-slate-50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
                 <div className="relative z-10 container mx-auto px-4">
@@ -68,9 +63,7 @@ export default function Homepage() {
                             href="/ai-figurine-creator" 
                             className="grid md:grid-cols-2 items-stretch group"
                         >
-                        {/* Left Section: Full Image with Trending text above */}
                         <div className="relative h-64 md:h-auto">
-                        {/* Image filling the entire section */}
                         <Image 
                             src={figurineImage} 
                             alt="Nano Banana Figurine" 
@@ -78,7 +71,6 @@ export default function Homepage() {
                             className="object-cover" 
                             priority
                         />
-                        {/* Trending Text - Positioned Top */}
                         <div className="absolute top-4 left-4">
                             <span className="bg-white text-orange-700 font-bold text-sm px-4 py-1 rounded-full">
                             🔥 Trending Now
@@ -86,7 +78,6 @@ export default function Homepage() {
                         </div>
                         </div>
 
-                        {/* Right Info Section */}
                         <div className="p-8 md:p-12 bg-white flex flex-col justify-center">
                         <h2 className="text-3xl font-bold text-slate-800 mb-3">
                             Nano Banana AI Figurine Creator
@@ -103,8 +94,6 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
-
-            {/* Tools Section */}
             <section id="tools" className="py-10 bg-white">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
@@ -118,8 +107,6 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
-
-            {/* Redesigned Features Section */}
             <section className="bg-white py-10">
                 <div className="max-w-6xl mx-auto text-center px-4">
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">Why Choose File Tools 4U?</h2>
@@ -127,7 +114,6 @@ export default function Homepage() {
                         We believe powerful file utilities should be simple, private, and accessible to everyone.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Feature 1 */}
                         <div className="bg-white p-8 rounded-xl shadow-md text-left">
                              <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
                                 <svg className="w-7 h-7 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
@@ -135,7 +121,6 @@ export default function Homepage() {
                             <h3 className="font-bold text-lg mb-2 text-slate-800">Blazing Fast</h3>
                             <p className="text-slate-600">Our tools process your files in seconds, running directly in your browser or on our optimized servers.</p>
                         </div>
-                         {/* Feature 2 */}
                         <div className="bg-white p-8 rounded-xl shadow-md text-left">
                             <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                                 <svg className="w-7 h-7 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
@@ -143,7 +128,6 @@ export default function Homepage() {
                             <h3 className="font-bold text-lg mb-2 text-slate-800">Privacy First</h3>
                             <p className="text-slate-600">We respect your privacy. Your files are never stored and are automatically deleted after processing.</p>
                         </div>
-                         {/* Feature 3 */}
                         <div className="bg-white p-8 rounded-xl shadow-md text-left">
                             <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                                  <svg className="w-7 h-7 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>

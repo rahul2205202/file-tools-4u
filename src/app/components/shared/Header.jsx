@@ -9,7 +9,6 @@ export default function Header() {
     const [openDropdown, setOpenDropdown] = useState(null);
     const pathname = usePathname();
 
-    // Simplified navigation structure without icons
     const navGroups = [
         {
             title: 'Image Tools',
@@ -41,7 +40,6 @@ export default function Header() {
         },
     ];
 
-    // Helper for mobile links (icon prop removed)
     const MobileNavLink = ({ href, children }) => {
         const isActive = pathname === href;
         return (

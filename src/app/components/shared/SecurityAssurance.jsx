@@ -2,15 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-// I'll use icons from lucide-react as in the example.
-// Make sure you have it installed: npm install lucide-react
 import { ShieldCheck, Server, Trash2 } from 'lucide-react';
 
 export default function SecurityAssurance() {
   return (
     <section className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
       <div className="flex flex-col md:flex-row items-start justify-between gap-8">
-        {/* Left Content - More concise */}
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-slate-800 mb-4">
             Your Data, Our Priority
@@ -29,8 +26,6 @@ export default function SecurityAssurance() {
             Read our Privacy Policy →
           </Link>
         </div>
-
-        {/* Right Features - Smaller icons and more concise text */}
         <div className="flex-1 flex flex-col gap-6 w-full">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">

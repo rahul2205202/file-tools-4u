@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { sendContactMessage } from '../../../lib/apiService'; // Adjust the import path as needed
+import { sendContactMessage } from '../../../lib/apiService';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ export default function ContactPage() {
         subject: '',
         message: '',
     });
-    const [status, setStatus] = useState('idle'); // 'idle', 'sending', 'success', 'error'
+    const [status, setStatus] = useState('idle');
     const [error, setError] = useState(null);
 
     const handleChange = (e) => {
@@ -34,11 +34,10 @@ export default function ContactPage() {
         }
 
         try {
-            // Call the dedicated apiService method
             await sendContactMessage(formData);
             
             setStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form on success
+            setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (err) {
             setError(err.message);
             setStatus('error');
@@ -49,7 +48,6 @@ export default function ContactPage() {
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-16">
                 <div className="w-full max-w-4xl mx-auto">
-                    {/* Header Section */}
                     <div className="text-center mb-12">
                         <div className="flex justify-center items-center gap-3 mb-2">
                             <svg className="w-10 h-10 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -62,7 +60,6 @@ export default function ContactPage() {
                         </p>
                     </div>
 
-                    {/* Contact Form Section */}
                     <div className="bg-white rounded-lg p-6 sm:p-10 border border-slate-200">
                         {status === 'success' ? (
                             <div className="text-center p-8 bg-green-50 border border-green-200 rounded-lg">

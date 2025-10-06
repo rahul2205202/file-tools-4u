@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 
-// A reusable, accessible accordion component for FAQs
 export default function FaqItem({ question, children }) {
     const [isOpen, setIsOpen] = useState(false);
 
