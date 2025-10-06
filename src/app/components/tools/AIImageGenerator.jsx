@@ -3,8 +3,6 @@
 import React, { useState, useCallback } from 'react';
 import { generateAiImage } from '../../../lib/apiService';
 
-// --- Helper Components (Styled to match the new theme) ---
-
 const Spinner = () => (
     <svg className="animate-spin h-10 w-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -12,22 +10,12 @@ const Spinner = () => (
     </svg>
 );
 
-const ImageIcon = ({ className = '' }) => (
-    <svg className={`mx-auto h-12 w-12 text-gray-400 ${className}`} stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
-
-// --- Main Component ---
-
 export default function AIImageGenerator() {
     const [prompt, setPrompt] = useState('');
     const [imageUrl, setImageUrl] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Add a reset handler
     const handleReset = () => {
         setPrompt('');
         setImageUrl(null);
@@ -66,7 +54,6 @@ export default function AIImageGenerator() {
         <div className="w-full min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
-                    {/* Header */}
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.456-2.456L12.5 18l1.178-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
                         <h1 className="text-4xl sm:text-5xl font-bold text-slate-800">AI Image Generator</h1>
@@ -80,7 +67,6 @@ export default function AIImageGenerator() {
                         </div>
                     )}
                     
-                    {/* Generator UI */}
                     <form onSubmit={handleGenerateImage} className="w-full space-y-6">
                         <textarea
                             value={prompt}
@@ -98,9 +84,6 @@ export default function AIImageGenerator() {
                             {isLoading ? 'Generating...' : 'Generate Image'}
                         </button>
                     </form>
-
-                    {/* --- UPDATED: Conditional Image Display Area --- */}
-                    {/* This section only appears after the generate button is clicked */}
                     {(isLoading || imageUrl) && (
                         <>
                             <div className="mt-10 border-t border-gray-200 pt-6">
@@ -133,7 +116,6 @@ export default function AIImageGenerator() {
 
                     <div className="my-5 border-t border-gray-200"></div>
 
-                    {/* How It Works Section */}
                     <div className="mt-10 text-center">
                         <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Generate AI Images</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
@@ -145,7 +127,6 @@ export default function AIImageGenerator() {
 
                     <div className="my-5 border-t border-gray-200"></div>
                     
-                    {/* Features Section */}
                     <div className="mt-10 max-w-5xl mx-auto">
                         <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Generation Features</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-left">

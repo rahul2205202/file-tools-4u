@@ -1,23 +1,17 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-// We will need a specific function in our apiService for this tool
 import { createFigurineFromImage } from '../../../lib/apiService'; 
 
-// --- Main Component ---
 export default function AIArtCreator() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [originalImagePreview, setOriginalImagePreview] = useState(null);
     const [generatedImageUrl, setGeneratedImageUrl] = useState(null);
-    
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    // New state for the realistic progress bar
     const [progress, setProgress] = useState(0);
     const [logMessage, setLogMessage] = useState('');
 
-    // Effect to manage the simulated progress bar
     useEffect(() => {
         let timer;
         if (isLoading && progress < 95) {
@@ -36,9 +30,9 @@ export default function AIArtCreator() {
                         return prev + 1;
                     }
                     setLogMessage('Finalizing product shot...');
-                    return prev; // Stall at 90-95% until done
+                    return prev;
                 });
-            }, 500); // Slightly slower for realism
+            }, 500);
         }
         return () => clearTimeout(timer);
     }, [isLoading, progress]);
@@ -56,21 +50,17 @@ export default function AIArtCreator() {
         if (fileInput) fileInput.value = '';
     };
 
-    // The main logic is now in handleFileChange, triggering automatically
     const handleFileChange = async (event) => {
         const file = event.target.files[0];
         if (file && file.type.startsWith('image/')) {
-            handleReset(); // Reset first
+            handleReset();
             setSelectedFile(file);
             setOriginalImagePreview(URL.createObjectURL(file));
-
-            // --- Automatic Generation Starts Here ---
             setIsLoading(true);
             const formData = new FormData();
             formData.append('file', file);
             
             try {
-                // NOTE: You will need to create this new function and its corresponding API route
                 const generatedBlob = await createFigurineFromImage(formData);
                 setProgress(100);
                 setLogMessage('Generation complete!');

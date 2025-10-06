@@ -79,14 +79,8 @@ export default function AIHashtagsGenerator() {
 
     return (
         <>
-            <Head>
-                <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXX" /> 
-            </Head>
-
             <main className="w-full min-h-screen bg-white font-sans">
                 <div className="container mx-auto px-4 py-10 sm:py-10">
-
-                    {/* Hero Section */}
                     <section className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                         <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4">
                             AI Hashtag Generator
@@ -95,13 +89,6 @@ export default function AIHashtagsGenerator() {
                             Boost your social media reach with trending, AI-generated hashtags. 
                             Works for Instagram, TikTok, YouTube, and more.
                         </p>
-
-                        {/* Adsense slot */}
-                        <div className="adsense-slot my-6 text-center">
-                            {/* Google AdSense code goes here */}
-                        </div>
-
-                        {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <label htmlFor="text-input" className="block text-lg font-semibold text-slate-700 mb-2 text-left">
                                 Describe your content
@@ -127,8 +114,6 @@ export default function AIHashtagsGenerator() {
                                 {isLoading ? 'Generating...' : 'Generate Hashtags'}
                             </button>
                         </form>
-
-                        {/* Results */}
                         {hashtags && !isLoading && (
                             <div className="mt-10 border-t border-gray-200 pt-6 text-left">
                                 <h2 className="text-2xl font-bold text-slate-800 mb-4">Generated Hashtags</h2>
@@ -138,18 +123,13 @@ export default function AIHashtagsGenerator() {
                             </div>
                         )}
                     </section>
-
-                    {/* SEO Content Section */}
                     <section className="mt-12 max-w-5xl mx-auto">
                         <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">Why Use an AI Hashtag Generator?</h2>
                         <p className="text-slate-600 mb-4 text-lg text-center">
                             Hashtags are essential for growing your reach on social media platforms like Instagram, TikTok, Twitter, and YouTube. 
                             With our AI-powered hashtag generator, you can get context-aware, trending, and highly relevant hashtags in seconds.
                         </p>
-                        <div className="adsense-slot my-6 text-center">{/* Adsense */}</div>
                     </section>
-
-                    {/* FAQ for SEO */}
                     <section className="mt-12 max-w-4xl mx-auto">
                         <h2 className="text-2xl font-bold text-slate-800 mb-6">Frequently Asked Questions</h2>
                         <div className="space-y-4">
@@ -223,11 +203,8 @@ export default function AIHashtagsGenerator() {
                                     favors tweets that get quick engagement, and hashtags are one of the fastest ways to achieve this. 
                                 </p>
                             </details>
-
                         </div>
                     </section>
-
-
                 </div>
             </main>
         </>
