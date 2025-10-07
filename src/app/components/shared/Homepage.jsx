@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import figurineImage from '../../components/images/ai-figurine.png';
-import DataProtection from './SecurityAssurance';
 
 const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     const colorThemes = {
@@ -40,9 +39,9 @@ export default function Homepage() {
     };
 
     return (
-        <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
-            <section className="text-center py-20 sm:py-24 bg-white relative">
-                <div className="absolute inset-0 bg-slate-50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
+        <div className="min-h-screen bg-background font-sans">
+        <div className="container mx-auto bg-background">
+            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="relative z-10 container mx-auto px-4">
                     <h1 className="text-5xl md:text-6xl font-extrabold text-slate-800 mb-6 tracking-tight">
                         Your Complete File Toolkit
@@ -54,11 +53,10 @@ export default function Homepage() {
                         Explore All Tools
                     </Link>
                 </div>
-            </section>
-
-            <section className="py-10 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200">
+            </div>
+            <div className='my-5'></div>
+            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
+                <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200">
                         <Link 
                             href="/ai-figurine-creator" 
                             className="grid md:grid-cols-2 items-stretch group"
@@ -92,9 +90,10 @@ export default function Homepage() {
                         </div>
                         </Link>
                     </div>
-                </div>
-            </section>
-            <section id="tools" className="py-10 bg-white">
+            </div>
+            
+            <div className='my-5'></div>
+            <section id="tools" className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
                         What can we help you with?
@@ -107,7 +106,8 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
-            <section className="bg-white py-10">
+            <div className='my-5'></div>
+            <section className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="max-w-6xl mx-auto text-center px-4">
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">Why Choose File Tools 4U?</h2>
                     <p className="text-slate-600 mb-12 max-w-2xl mx-auto">
@@ -138,9 +138,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
-            <div className='max-w-4xl mx-auto px-4 mb-16'>
-                <DataProtection />
-            </div>
+        </div>
         </div>
     );
 }
