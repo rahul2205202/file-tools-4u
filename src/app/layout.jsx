@@ -4,18 +4,14 @@ import './globals.css';
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import Providers from './components/shared/Providers';
-import Sidebar from './components/shared/Sidebar'; // 2. Import the Sidebar
-import { usePathname } from 'next/navigation'; // 3. Import the hook
-
-// Metadata must be removed from Client Components, 
-// but you can keep it in your individual page.jsx files.
+import Sidebar from './components/shared/Sidebar';
+import { usePathname } from 'next/navigation';
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname(); // 4. Get the current URL path
+  const pathname = usePathname();
 
-  // 5. Define which pages should NOT have a sidebar
   const noSidebarRoutes = [
-    '/', // Homepage
+    '/',
     '/about',
     '/contact',
     '/privacy-policy',
@@ -26,8 +22,6 @@ export default function RootLayout({ children }) {
   //   '/image-to-pdf',
   // ]
 
-  // The sidebar should be shown if the current path is not in the list
-  // and does not start with /blog (for the blog index and all posts)
   const showSidebar = !noSidebarRoutes.includes(pathname) && !pathname.startsWith('/blog');
 
   return (
