@@ -76,7 +76,7 @@ export default function JpegToPngConverter() {
 
     return (
         <div className="w-full min-h-screen bg-white font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                          <svg className="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
