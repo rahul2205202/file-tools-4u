@@ -77,7 +77,7 @@ export default function PngToJpegConverter() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                          <svg className="w-10 h-10 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
@@ -159,9 +159,9 @@ export default function PngToJpegConverter() {
                     )}
                 </div>
                 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 text-center">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Convert PNG to JPEG</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload PNG</h3><p className="text-slate-600">Click the upload area to select a PNG image from your computer.</p></div>
@@ -170,9 +170,9 @@ export default function PngToJpegConverter() {
                     </div>
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Why Convert PNG to JPEG?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex items-start space-x-4">

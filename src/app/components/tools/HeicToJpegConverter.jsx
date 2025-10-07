@@ -106,9 +106,8 @@ export default function HeicToJpegConverter() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
-                    
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25" /></svg>
                         <h1 className="text-4xl sm:text-5xl font-bold text-slate-800">HEIC to JPEG Converter</h1>
@@ -180,9 +179,9 @@ export default function HeicToJpegConverter() {
                     )}
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 text-center">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Convert HEIC to JPEG</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-cyan-500 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload HEIC File</h3><p className="text-slate-600">Select your .heic or .heif image by clicking the upload area.</p></div>
@@ -191,9 +190,9 @@ export default function HeicToJpegConverter() {
                     </div>
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Why Convert from HEIC to JPEG?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex items-start space-x-4">
@@ -216,9 +215,9 @@ export default function HeicToJpegConverter() {
                         </div>
                     </div>
                 </div>
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                 <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">
                     Frequently Asked Questions
                 </h2>

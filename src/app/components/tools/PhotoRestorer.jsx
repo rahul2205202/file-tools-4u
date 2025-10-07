@@ -66,7 +66,7 @@ export default function PhotoRestorer() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.25 21.75l-.648-1.178a3.375 3.375 0 00-2.312-2.312L12 17.25l1.178-.648a3.375 3.375 0 002.312-2.312L16.25 13.5l.648 1.178a3.375 3.375 0 002.312 2.312L20.25 18l-1.178.648a3.375 3.375 0 00-2.312 2.312z" /></svg>
@@ -126,9 +126,9 @@ export default function PhotoRestorer() {
                     )}
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
 
-                <div className="mt-10 text-center">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">Restore Memories in 3 Steps</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload Photo</h3><p className="text-slate-600">Select an old, blurry, or scratched photo you want to bring back to life.</p></div>
@@ -137,9 +137,9 @@ export default function PhotoRestorer() {
                     </div>
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Features</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex items-start space-x-4"><div className="flex-shrink-0 w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center"><svg className="w-8 h-8 text-amber-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg></div><div><h3 className="text-lg font-semibold text-slate-800 mb-1">Scratch & Blemish Removal</h3><p className="text-slate-600">Our AI intelligently identifies and removes scratches, dust, and tears from your photos.</p></div></div>

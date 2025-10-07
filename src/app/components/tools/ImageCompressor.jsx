@@ -92,7 +92,7 @@ export default function ImageCompressor() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5M15 15l5.25 5.25" /></svg>
@@ -184,9 +184,9 @@ export default function ImageCompressor() {
                     )}
                 </div>
                 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 text-center">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Compress an Image</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload Image</h3><p className="text-slate-600">Select the image file you want to make smaller.</p></div>
@@ -195,9 +195,9 @@ export default function ImageCompressor() {
                     </div>
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Compression Features</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex items-start space-x-4">

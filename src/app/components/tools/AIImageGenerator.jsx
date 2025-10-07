@@ -52,7 +52,7 @@ export default function AIImageGenerator() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">
                         <svg className="w-10 h-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.456-2.456L12.5 18l1.178-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
@@ -113,10 +113,9 @@ export default function AIImageGenerator() {
                             )}
                         </>
                     )}
-
-                    <div className="my-5 border-t border-gray-200"></div>
-
-                    <div className="mt-10 text-center">
+                </div>
+                    <div className="my-5"></div>
+                    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                         <h2 className="text-3xl font-bold text-slate-800 mb-12">How to Generate AI Images</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                             <div className="flex flex-col items-center"><div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Write a Prompt</h3><p className="text-slate-600">Describe the image you want to create. Be as detailed as you like.</p></div>
@@ -125,9 +124,9 @@ export default function AIImageGenerator() {
                         </div>
                     </div>
 
-                    <div className="my-5 border-t border-gray-200"></div>
+                    <div className="my-5"></div>
                     
-                    <div className="mt-10 max-w-5xl mx-auto">
+                    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                         <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Generation Features</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 text-left">
                            <div className="flex items-start space-x-4">
@@ -156,7 +155,6 @@ export default function AIImageGenerator() {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <style>{`@keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } } .animate-fade-in { animation: fade-in 0.5s ease-in-out; }`}</style>
         </div>

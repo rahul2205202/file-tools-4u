@@ -40,7 +40,7 @@ export default function Homepage() {
     };
 
     return (
-        <div className="w-full bg-white font-sans">
+        <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
             <section className="text-center py-20 sm:py-24 bg-white relative">
                 <div className="absolute inset-0 bg-slate-50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"></div>
                 <div className="relative z-10 container mx-auto px-4">

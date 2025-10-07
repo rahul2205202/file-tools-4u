@@ -89,7 +89,7 @@ export default function WebpToPngConverter() {
 
     return (
         <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
-            <div className="container mx-auto px-4 py-10 sm:py-10">
+            <div className="container mx-auto bg-background">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     
                     <div className="flex justify-center items-center gap-3 mb-2">
@@ -160,9 +160,9 @@ export default function WebpToPngConverter() {
                      )}
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 text-center">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                     <h2 className="text-3xl font-bold text-slate-800 mb-12">Convert WebP to PNG in 3 Steps</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                         <div className="flex flex-col items-center"><div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mb-5"><span className="font-bold text-2xl">1</span></div><h3 className="text-xl font-semibold text-slate-800 mb-2">Upload WebP File</h3><p className="text-slate-600">Select your .webp image by clicking the upload area or by dragging and dropping.</p></div>
@@ -171,9 +171,9 @@ export default function WebpToPngConverter() {
                     </div>
                 </div>
 
-                <div className="my-5 border-t border-gray-200"></div>
+                <div className="my-5"></div>
                 
-                <div className="mt-10 max-w-5xl mx-auto">
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">Key Features</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex items-start space-x-4">
