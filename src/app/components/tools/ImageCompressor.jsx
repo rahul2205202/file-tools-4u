@@ -91,7 +91,7 @@ export default function ImageCompressor() {
     };
 
     return (
-        <div className="w-full min-h-screen bg-white font-sans">
+        <div className="w-full max-w-3xl min-h-screen bg-background font-sans">
             <div className="container mx-auto px-4 py-10 sm:py-10">
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                     <div className="flex justify-center items-center gap-3 mb-2">

@@ -80,7 +80,7 @@ export default function AIHashtagsGenerator() {
     return (
         <>
             <main className="w-full min-h-screen bg-white font-sans">
-                <div className="container mx-auto px-4 py-10 sm:py-10">
+                <div className="container mx-auto bg-background">
                     <section className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                         <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4">
                             AI Hashtag Generator
@@ -123,14 +123,14 @@ export default function AIHashtagsGenerator() {
                             </div>
                         )}
                     </section>
-                    <section className="mt-12 max-w-5xl mx-auto">
+                    <section className="mt-5 w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                         <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">Why Use an AI Hashtag Generator?</h2>
                         <p className="text-slate-600 mb-4 text-lg text-center">
                             Hashtags are essential for growing your reach on social media platforms like Instagram, TikTok, Twitter, and YouTube. 
                             With our AI-powered hashtag generator, you can get context-aware, trending, and highly relevant hashtags in seconds.
                         </p>
                     </section>
-                    <section className="mt-12 max-w-4xl mx-auto">
+                    <section className="mt-5 w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
                         <h2 className="text-2xl font-bold text-slate-800 mb-6">Frequently Asked Questions</h2>
                         <div className="space-y-4">
 

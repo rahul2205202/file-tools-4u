@@ -42,7 +42,7 @@ export async function POST(request) {
             throw new Error('Gemini API key is not configured on the server.');
         }
         
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
         const response = await axios.post(apiUrl, payload);
         const generatedHashtags = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;

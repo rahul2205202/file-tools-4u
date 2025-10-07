@@ -1,5 +1,5 @@
 import React from 'react';
-import AIArtCreator from '../components/tools/AIFigurineCreator';
+import AIFigurineCreator from '../components/tools/AIFigurineCreator';
 
 export const metadata = {
     title: 'Nano Banana AI Figurine Creator | Turn Photos into 3D Collectibles | File Tools 4U',
@@ -12,6 +12,6 @@ export const metadata = {
 };
 
 export default function AIFigurineCreatorPage() {
-    return <AIArtCreator />;
+    return <AIFigurineCreator />;
 }
 
