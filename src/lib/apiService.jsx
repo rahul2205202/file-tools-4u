@@ -331,3 +331,15 @@ export const convertHeicToPng = async (formData) => {
         throw new Error(await getErrorMessage(error));
     }
 };
+
+export const convertImageToIco = async (formData) => {
+    try {
+        const response = await localApi.post('/convert/image-to-ico', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+            responseType: 'blob',
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(await getErrorMessage(error));
+    }
+};
