@@ -18,7 +18,6 @@ export default function sitemap() {
     '/heic-to-jpeg',
     '/heic-to-png',
     '/ico-converter',
-    '/webp-converter',
     '/contact-us',
     '/privacy-policy',
     '/terms-of-service',
