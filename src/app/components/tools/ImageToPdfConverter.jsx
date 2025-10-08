@@ -181,7 +181,7 @@ export default function ImageToPdfConverter() {
                                 <svg className="w-8 h-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Multi-Image Support</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">Multi-Image Support</h3>
                                 <p className="text-slate-600">Combine multiple JPG, PNG, and other image types into a single, convenient PDF document.</p>
                             </div>
                         </div>
@@ -190,7 +190,7 @@ export default function ImageToPdfConverter() {
                                 <svg className="w-8 h-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M12 21v-6.375m0 0a3.75 3.75 0 01-7.5 0m7.5 0a3.75 3.75 0 007.5 0M12 21a3.75 3.75 0 01-7.5 0m7.5 0a3.75 3.75 0 007.5 0" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">High-Quality Output</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">High-Quality Output</h3>
                                 <p className="text-slate-600">Images are processed with care to ensure a crisp, professional result without quality loss.</p>
                             </div>
                         </div>
@@ -199,7 +199,7 @@ export default function ImageToPdfConverter() {
                                 <svg className="w-8 h-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">Secure & Private</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">Secure & Private</h3>
                                 <p className="text-slate-600">All uploaded files are automatically and permanently deleted from our servers after one hour.</p>
                             </div>
                         </div>
@@ -208,7 +208,7 @@ export default function ImageToPdfConverter() {
                                 <svg className="w-8 h-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
                             </div>
                             <div>
-                                <h4 className="text-lg font-semibold text-slate-800 mb-1">No Software Installation</h4>
+                                <h3 className="text-lg font-semibold text-slate-800 mb-1">No Software Installation</h3>
                                 <p className="text-slate-600">Our converter works entirely in your browser. No downloads or installations are required.</p>
                             </div>
                         </div>
