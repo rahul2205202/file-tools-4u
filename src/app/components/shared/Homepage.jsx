@@ -41,19 +41,51 @@ export default function Homepage() {
     return (
         <div className="min-h-screen bg-background font-sans">
         <div className="container mx-auto bg-background">
-            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
+            {/* <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="relative z-10 container mx-auto px-4">
-                    <h1 className="text-5xl md:text-6xl font-extrabold text-slate-800 mb-6 tracking-tight">
+                    <h1 className="underline decoration-red-500 text-5xl font-bold text-slate-800 mb-6 tracking-tight">
                         Your Complete File Toolkit
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
                         Compress, convert, and create with our powerful suite of free online tools for your images and PDFs. Fast, secure, and easy to use.
                     </p>
-                    <Link href="#tools" className="bg-red-600 text-white font-bold py-4 px-10 rounded-lg hover:bg-red-700 transition-transform duration-300 transform hover:scale-105 inline-block shadow-lg">
+                    <Link href="#tools" className="bg-red-600 text-white font-bold py-4 px-10 rounded-lg transition-transform duration-300 transform hover:scale-105 inline-block shadow-lg">
                         Explore All Tools
                     </Link>
                 </div>
-            </div>
+            </div> */}
+            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center relative overflow-hidden">
+  <div className="relative z-10 container mx-auto px-4">
+    <h1 className="underline decoration-red-500 text-5xl font-bold text-slate-800 mb-6 tracking-tight">
+      Your Complete File Toolkit
+    </h1>
+    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+      Compress, convert, and create with our powerful suite of free online tools for your images and PDFs. Fast, secure, and easy to use.
+    </p>
+
+    {/* Search Box */}
+    <div className="flex justify-center mb-8">
+      <div className="relative w-full max-w-lg">
+        <input
+          type="text"
+          placeholder="Search for tools..."
+          className="w-full py-4 pl-12 pr-4 rounded-full border border-gray-300 shadow-sm focus:outline-none transition text-gray-700"
+        />
+        <svg
+          className="w-6 h-6 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
             <div className='my-5'></div>
             <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200">

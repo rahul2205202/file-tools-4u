@@ -58,7 +58,7 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-white/80 backdrop-blur-sm shadow-sm w-full sticky top-0 z-50">
+        <header className="bg-white backdrop-blur-sm shadow-sm w-full sticky top-0 z-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     
@@ -76,9 +76,9 @@ export default function Header() {
                                 onMouseEnter={() => setOpenDropdown(group.title)}
                                 onMouseLeave={() => setOpenDropdown(null)}
                             >
-                                <button className="font-medium text-slate-600 hover:text-red-600 transition-colors duration-200 flex items-center gap-1 px-3 py-2">
-                                    {group.title}
-                                    <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                                <button className="relative group font-medium text-slate-600 px-3 py-2 flex items-center gap-1">
+                                    <span className="group-hover:text-red-600 transition-colors duration-300">{group.title}</span>
+                                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full -translate-x-1/2"></span>
                                 </button>
                                 {openDropdown === group.title && (
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-20">
