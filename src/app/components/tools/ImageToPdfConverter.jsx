@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { convertImagesToPdf } from '../../../lib/apiService';
+import FaqItem from '../shared/FaqItem';
 
 export default function ImageToPdfConverter() {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -215,8 +216,8 @@ export default function ImageToPdfConverter() {
                 </div>
                 <div className="my-5"></div>
                 <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
-                    <h2 className="text-3xl font-bold text-slate-800 mb-6">
-                        How to Convert Images to PDF Online
+                    <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">
+                        How to Convert Images to PDF Online?
                     </h2>
                     <p className="text-slate-600 mb-4">
                         Converting <strong>images to PDF</strong> has never been easier. With File Tools 4U’s
@@ -230,8 +231,10 @@ export default function ImageToPdfConverter() {
                         <li>Click <strong>“Create PDF”</strong> to start conversion.</li>
                         <li>Once ready, download your professional PDF instantly!</li>
                     </ol>
-
-                    <h3 className="text-2xl font-semibold text-slate-800 mt-10 mb-3">
+                </div>
+                <div className="my-5"></div>
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
+                    <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">
                         Why Use File Tools 4U Image to PDF Converter?
                     </h3>
                     <ul className="list-disc pl-5 space-y-2 text-slate-600">
@@ -241,8 +244,10 @@ export default function ImageToPdfConverter() {
                         <li><strong>Privacy Guaranteed:</strong> Your images are never stored permanently.</li>
                         <li><strong>Fast & Lightweight:</strong> Conversion completes in just a few seconds.</li>
                     </ul>
-
-                    <h3 className="text-2xl font-semibold text-slate-800 mt-10 mb-3">
+                </div>
+                <div className="my-5"></div>
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
+                    <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">
                         Supported Image Formats
                     </h3>
                     <p className="text-slate-600 mb-4">
@@ -250,32 +255,40 @@ export default function ImageToPdfConverter() {
                         <strong> JPG, JPEG, and PNG.</strong> Whether you’re scanning documents, merging
                         receipts, or creating a digital photo book, File Tools 4U handles it smoothly.
                     </p>
-
-                    <h3 className="text-2xl font-semibold text-slate-800 mt-10 mb-3">
-                        FAQs – Image to PDF Converter
-                    </h3>
-                    <div className="my-5">
-                    <div>
-                        <h4 className="font-semibold text-slate-800">1. Is this Image to PDF Converter free?</h4>
-                        <p>Yes! Our converter is 100% free to use, with no hidden fees or watermarks.</p>
-                        </div>
-                        <div>
-                        <h4 className="font-semibold text-slate-800">2. Are my images safe?</h4>
-                        <p>Absolutely. Your images are processed securely and automatically deleted from the server after one hour.</p>
-                        </div>
-                        <div>
-                        <h4 className="font-semibold text-slate-800">3. Can I convert multiple images at once?</h4>
-                        <p>Yes, you can select multiple JPG or PNG files and merge them into one single PDF file instantly.</p>
-                        </div>
-                        <div>
-                        <h4 className="font-semibold text-slate-800">4. Does this work on mobile devices?</h4>
-                        <p>Yes, File Tools 4U’s converter is fully responsive and works smoothly on all smartphones and tablets.</p>
-                        </div>
-                        <div>
-                        <h4 className="font-semibold text-slate-800">5. Do I need to install any software?</h4>
-                        <p>No installation is required. Everything runs in your browser — quick and easy.</p>
-                    </div>
                 </div>
+                    
+                <div className="my-5"></div>
+                <div className="w-full max-w-4xl mx-auto bg-white rounded-lg p-6 sm:p-10">
+                    <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">
+                        Frequently Asked Questions
+                    </h2>
+                    <div className="space-y-4">
+                        <FaqItem question="Is this Image to PDF Converter free?">
+                        <p>
+                            Yes! Our converter is 100% free to use, with no hidden fees, watermarks, or sign-up requirements.
+                        </p>
+                        </FaqItem>
+                        <FaqItem question="Are my images safe?">
+                        <p>
+                            Absolutely. We prioritize your privacy. Your images are processed securely over an encrypted connection and are automatically and permanently deleted from our servers after one hour.
+                        </p>
+                        </FaqItem>
+                        <FaqItem question="Can I convert multiple images at once?">
+                        <p>
+                            Yes, you can select and upload multiple JPG or PNG files at the same time. Our tool will automatically merge them into a single, multi-page PDF file for you.
+                        </p>
+                        </FaqItem>
+                        <FaqItem question="Does this work on mobile devices?">
+                        <p>
+                            Yes, our Image to PDF converter is fully responsive and designed to work smoothly on all modern devices, including smartphones and tablets, directly in your browser.
+                        </p>
+                        </FaqItem>
+                        <FaqItem question="Do I need to install any software?">
+                        <p>
+                            No installation is required. The entire process runs online in your browser, making it quick, easy, and accessible from anywhere without needing to download any software.
+                        </p>
+                        </FaqItem>
+                    </div>
                 </div>
             </div>
         </div>
