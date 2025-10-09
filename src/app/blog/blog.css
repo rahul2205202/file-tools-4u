@@ -1,0 +1,63 @@
+/* Universal blog text color */
+.blog-theme {
+  color: #1e293b;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+/* Headings */
+.blog-theme h1 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ef4444;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.blog-theme h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.blog-theme h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-theme h4{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+.blog-theme h5,
+.blog-theme h6 {       
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.blog-theme a {
+  color: #dc2626;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+
+.blog-theme a:hover {
+  color: #b91c1c;
+}
+
+.blog-theme blockquote {
+  border-left: 4px solid #ef4444;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}

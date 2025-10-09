@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     '/terms-of-service',
   ];
 
-  const showSidebar = !noSidebarRoutes.includes(pathname) && !pathname.startsWith('/blog');
+  const showSidebar = !noSidebarRoutes.includes(pathname);
 
   useEffect(() => {
     if (window.gtag) {
