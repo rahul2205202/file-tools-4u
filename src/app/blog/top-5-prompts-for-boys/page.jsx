@@ -2,6 +2,7 @@
 import React from "react";
 import { BLOG_AUTHOR } from "../config";
 import BlogMeta from "../BlogMeta";
+import BlogShare from "../BlogShare";
 
 export const metadata = {
   title: "Top 5 Gemini AI Photo Editing Prompts for Boys – Ultra-Realistic HD Portraits",
@@ -96,6 +97,7 @@ export default function BlogPost() {
         tone, and composition, your AI-generated photo can look like it came straight out of a
         movie.
       </p>
+      <BlogShare url={"https://filetools4u.com/blog/top-5-prompt-for-boys"} title={"Top 5 Gemini AI Photo Editing Prompts for Boys – Ultra-Realistic HD Cinematic Portraits"}/>
     </article>
   );
 }

@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lineiconshq/free-icons": "^1.0.3",
+    "@lineiconshq/react-lineicons": "^1.0.5",
     "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.11.0",
     "canvas": "^3.1.2",
@@ -19,6 +21,7 @@
     "heic-convert": "^2.1.0",
     "jszip": "^3.10.1",
     "lib": "^5.1.0",
+    "lineicons-react": "^2.0.0",
     "lucide-react": "^0.542.0",
     "next": "15.4.6",
     "node-poppler": "^8.0.4",
@@ -33,7 +36,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-lineicons": "^3.0.0",
     "react-router-dom": "^7.7.1",
+    "react-share": "^5.2.2",
     "resend": "^6.0.1",
     "sharp": "^0.34.3"
   },

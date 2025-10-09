@@ -1,14 +1,13 @@
 /* Universal blog text color */
 .blog-theme {
   color: #1e293b;
-  line-height: 1.7;
+  line-height: 1.5;
   font-size: 17px;
 }
 
 /* Headings */
 .blog-theme h1 {
   font-size: 1.6rem;
-  line-height: 1.3;
   font-weight: 700;
   margin-bottom: 1rem;
   border-bottom: 2px solid #ef4444;
