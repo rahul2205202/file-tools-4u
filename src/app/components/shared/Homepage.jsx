@@ -1,7 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from "next/image";
-import figurineImage from '../../components/images/ai-figurine.png';
 
 const ToolCard = ({ icon, title, description, to, color = 'red' }) => {
     const colorThemes = {
