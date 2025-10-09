@@ -41,93 +41,44 @@ export default function Homepage() {
     return (
         <div className="min-h-screen bg-background font-sans">
         <div className="container mx-auto bg-background">
-            {/* <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
+            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center relative overflow-hidden">
                 <div className="relative z-10 container mx-auto px-4">
                     <h1 className="underline decoration-red-500 text-5xl font-bold text-slate-800 mb-6 tracking-tight">
                         Your Complete File Toolkit
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+                    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-5">
                         Compress, convert, and create with our powerful suite of free online tools for your images and PDFs. Fast, secure, and easy to use.
                     </p>
                     <Link href="#tools" className="bg-red-600 text-white font-bold py-4 px-10 rounded-lg transition-transform duration-300 transform hover:scale-105 inline-block shadow-lg">
                         Explore All Tools
                     </Link>
+
+                {/* Search Box */}
+                {/* <div className="flex justify-center mb-8">
+                <div className="relative w-full max-w-lg">
+                    <input
+                    type="text"
+                    placeholder="Search for tools..."
+                    className="w-full py-4 pl-12 pr-4 rounded-full border border-gray-300 shadow-sm focus:outline-none transition text-gray-700"
+                    />
+                    <svg
+                    className="w-6 h-6 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path>
+                    </svg>
                 </div>
-            </div> */}
-            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center relative overflow-hidden">
-  <div className="relative z-10 container mx-auto px-4">
-    <h1 className="underline decoration-red-500 text-5xl font-bold text-slate-800 mb-6 tracking-tight">
-      Your Complete File Toolkit
-    </h1>
-    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
-      Compress, convert, and create with our powerful suite of free online tools for your images and PDFs. Fast, secure, and easy to use.
-    </p>
-
-    {/* Search Box */}
-    <div className="flex justify-center mb-8">
-      <div className="relative w-full max-w-lg">
-        <input
-          type="text"
-          placeholder="Search for tools..."
-          className="w-full py-4 pl-12 pr-4 rounded-full border border-gray-300 shadow-sm focus:outline-none transition text-gray-700"
-        />
-        <svg
-          className="w-6 h-6 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-
-            <div className='my-5'></div>
-            <div className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
-                <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200">
-                        <Link 
-                            href="/ai-figurine-creator" 
-                            className="grid md:grid-cols-2 items-stretch group"
-                        >
-                        <div className="relative h-64 md:h-auto">
-                        <Image 
-                            src={figurineImage} 
-                            alt="Nano Banana Figurine" 
-                            fill 
-                            className="object-cover" 
-                            priority
-                        />
-                        <div className="absolute top-4 left-4">
-                            <span className="bg-white text-orange-700 font-bold text-sm px-4 py-1 rounded-full">
-                            🔥 Trending Now
-                            </span>
-                        </div>
-                        </div>
-
-                        <div className="p-8 md:p-12 bg-white flex flex-col justify-center">
-                        <h2 className="text-3xl font-bold text-slate-800 mb-3">
-                            Nano Banana AI Figurine Creator
-                        </h2>
-                        <p className="text-slate-600 text-lg mb-6">
-                            Turn any photo into a hyper-realistic, collectible 3D figurine. 
-                            Be part of the viral trend everyone is talking about!
-                        </p>
-                        <span className="inline-block text-orange-600 font-semibold group-hover:underline">
-                            Try the Viral Tool →
-                        </span>
-                        </div>
-                        </Link>
-                    </div>
-            </div>
-            
+                </div> */}
+                </div>
+            </div>            
             <div className='my-5'></div>
             <section id="tools" className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
+                    <h2 className="underline decoration-red-500 text-4xl font-bold text-slate-800 text-center mb-12">
                         What can we help you with?
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -141,7 +92,7 @@ export default function Homepage() {
             <div className='my-5'></div>
             <section className="w-full mx-auto bg-white rounded-lg p-6 sm:p-10 text-center">
                 <div className="max-w-6xl mx-auto text-center px-4">
-                    <h2 className="text-4xl font-bold text-slate-800 mb-6">Why Choose File Tools 4U?</h2>
+                    <h2 className="underline decoration-red-500 text-4xl font-bold text-slate-800 mb-6">Why Choose File Tools 4U?</h2>
                     <p className="text-slate-600 mb-12 max-w-2xl mx-auto">
                         We believe powerful file utilities should be simple, private, and accessible to everyone.
                     </p>
